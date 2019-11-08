@@ -3,8 +3,62 @@
 <head>
     <title>shdewz</title>
     <meta charset="UTF-8">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <script>
+        function copyDC()
+        {
+            var str = "shdewz#0518";
+            var el = document.createElement('textarea');
+            el.value = str;
+            el.setAttribute('readonly', '');
+            el.style = { position: 'absolute', left: '-9999px' };
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            // alert(`ID copied to clipboard\n(${str})`);
+        }
+    </script>
 </head>
 
 <body>
-    <h1>shdewz</h1>
+
+    <div class="content">
+
+        <div class="edge"></div>
+
+        <div class="title-1">
+
+            <div class="title-2">
+                <div class="title">
+                    <h1 class="title-text">shdewz</h1>
+                </div>
+            </div>
+
+            <div class="links-2">
+                <div class="title">
+                    <div class="tooltip">
+                        <ul class="links">
+                            <a href="https://twitch.tv/shdewz"><i class="fab fa-twitch"></i></a>
+                            <a href="https://www.youtube.com/channel/UCfJxlVJ2ucEmXF9uc_QuGew"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="https://osu.ppy.sh/u/10000899"><i class="far fa-circle">
+                                    <p>osu!</p>
+                                </i></a>
+                            <a href="https://github.com/shdewz"><i class="fab fa-github"></i></a>
+                            <a onclick="copyDC()" class="dc"><i class="fab fa-discord"></i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="edge2"></div>
+
+    </div>
+
 </body>
