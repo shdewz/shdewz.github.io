@@ -113,3 +113,22 @@ html>body .content {
     text-shadow: 0 0 40px #0073D0;
 }
 
+/* media query stuff */
+
+@media screen and (max-width: 540px) {
+    .title-text {
+        font-size: calc(16vw + 8px);
+    }
+
+    .links i {
+        font-size: calc((16vw + 8px) / 2);
+        padding: 1vw;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .links i p {
+        font-size: calc((16vw + 8px) / 6.8);
+        font-weight: 400;
+    }
+}
