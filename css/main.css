@@ -139,6 +139,10 @@ html>body .content {
         transition: 0s;
         visibility: hidden;
     }
+
+    .textarea h2 {
+        visibility: hidden;
+    }
 }
 
 @media screen and (max-height: 400px) {
