@@ -33,6 +33,7 @@ html>body .content {
 }
 
 .textarea h1 {
+    margin-top: 10px;
     font-size: 48px;
     font-weight: 700;
     color: rgb(0, 165, 255);
@@ -47,11 +48,14 @@ html>body .content {
 }
 
 .textarea ul {
+    padding: 0;
+    width: 0;
+    margin-left: 10px;
     list-style: none;
 }
 
 .textarea ul i {
-    width: 30px;
+    width: 40px;
     text-align: center;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -67,12 +71,16 @@ html>body .content {
 
 .textarea ul a span {
     font-size: 20px;
+    margin-top: 4px;
 }
 
 .textarea ul .l1 {
     background-color: none;
+    display: flex;
+    overflow-inline: visible;
+    margin: 5px;
     padding-left: 10px;
-    width: 160px;
+    width: 40px;
     border-radius: 20px;
     transition: 0.25s ease-out;
 }
@@ -80,6 +88,11 @@ html>body .content {
 .textarea ul .l1:hover {
     background-color: rgb(0, 165, 255);
     color: #F4F4F4;
+    width: 160px;
+}
+
+.dc {
+    cursor: copy;
 }
 
 /* media query stuff */
