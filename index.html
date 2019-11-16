@@ -30,10 +30,10 @@
             dc.innerHTML = "copied";
 
             // change styles
-            dcl1.style.width = "160px";
-            dcl1.style.backgroundColor = "rgb(0, 165, 255)";
-            dcl1.style.color = "#F4F4F4";
-            dcl1.style.paddingLeft = "20px";
+            dcl1.style.width = "180px";
+            dcl1.style.background = "linear-gradient(to right, #8a2387, #e94057, #f27121);";
+            dcl1.style.color = "#FFFFFF";
+            dcl1.style.paddingLeft = "30px";
 
             // keep text for 2 seconds
             setTimeout(function ()
@@ -56,30 +56,35 @@
 
         <div class="textarea">
 
-            <img class="pfp" src="img/favicon.ico">
-            <h2>hello</h2>
+            <div class="textarea-top">
+                <img class="pfp" src="img/favicon.ico">
+                <h2>hello</h2>
 
-            <h1><i>shdewz</i></h1>
-            <p><i>https://shdewz.github.io</i></p>
-            <ul>
-                <a href="https://twitch.tv/shdewz">
-                    <li class="l1"><i class="fab fa-twitch"></i><span>twitch</span></li>
-                </a>
-                <a href="https://www.youtube.com/channel/UCfJxlVJ2ucEmXF9uc_QuGew">
-                    <li class="l1"><i class="fab fa-youtube"></i><span>youtube</span></li>
-                </a>
-                <a href="https://osu.ppy.sh/u/10000899">
-                    <li class="l1"><i class="far fa-circle"></i><span>osu!</span></li>
-                </a>
-                <a href="https://github.com/shdewz">
-                    <li class="l1"><i class="fab fa-github"></i><span>github</span></li>
-                </a>
-                <a href="#" class="dc" onclick="copyDC()">
-                    <li class="l1" id="dcl1" ><i class="fab fa-discord"></i><span id="dct">discord</span></li>
-                </a>
-                <!-- ADD THIS LATER -->
-                <!--<a href="#"><li class="l1"><i class="fas fa-tools"></i><span>tools</span></li></a>-->
-            </ul>
+                <h1><i>shdewz</i></h1>
+                <p><i>https://shdewz.github.io</i></p>
+            </div>
+
+            <div class="textarea-bottom">
+                <ul>
+                    <a href="https://twitch.tv/shdewz">
+                        <li class="l1"><i class="fab fa-twitch"></i><span>twitch</span></li>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCfJxlVJ2ucEmXF9uc_QuGew">
+                        <li class="l1"><i class="fab fa-youtube"></i><span>youtube</span></li>
+                    </a>
+                    <a href="https://osu.ppy.sh/u/10000899">
+                        <li class="l1"><i class="far fa-circle"></i><span>osu!</span></li>
+                    </a>
+                    <a href="https://github.com/shdewz">
+                        <li class="l1"><i class="fab fa-github"></i><span>github</span></li>
+                    </a>
+                    <a href="#" class="dc" onclick="copyDC()">
+                        <li class="l1" id="dcl1"><i class="fab fa-discord"></i><span id="dct">discord</span></li>
+                    </a>
+                    <!-- ADD THIS LATER -->
+                    <!--<a href="#"><li class="l1"><i class="fas fa-tools"></i><span>tools</span></li></a>-->
+                </ul>
+            </div>
 
         </div>
 

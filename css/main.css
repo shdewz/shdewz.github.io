@@ -19,9 +19,9 @@ html>body .content {
 }
 
 .textarea {
-    background-color: #F4F4F4;
+    background-color: none;
     width: 600px;
-    height: 300px;
+    height: 340px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -29,22 +29,50 @@ html>body .content {
     margin-left: 64px;
     margin-top: 0;
     border-radius: 50px;
-    box-shadow: 10px 10px 20px #acacac;
+    box-shadow: 0px 0px 20px #8d8d8d;
+}
+
+.textarea-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 100px;
+    background-image: -webkit-linear-gradient(to bottom right, #8a2387, #e94057, #f27121);
+    background-image: linear-gradient(to bottom right, #8a2387, #e94057, #f27121);
+    padding: 32px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.textarea-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 196px;
+    background-color: #FFFFFF;
+    padding: 32px;
+    padding-top: 12px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 .textarea h1 {
     margin-top: 10px;
     font-size: 52px;
     font-weight: 700;
-    color: rgb(0, 165, 255);
+    color: #FFFFFF;
     margin-left: 20px;
     margin-bottom: 0;
+    cursor: default;
 }
 
 .textarea p {
     margin-top: 0;
     margin-left: 20px;
-    color: #3c3c3c;
+    color: #FFFFFF;
+    cursor: default;
 }
 
 .textarea ul {
@@ -65,17 +93,21 @@ html>body .content {
 .textarea ul a {
     font-size: 24px;
     text-decoration: none;
-    color: #3c3c3c;
     transition: 0.15s ease-out;
+    color: #bb1b86;
 }
 
 .textarea ul a span {
     font-size: 20px;
     margin-top: 4px;
+    background: -webkit-linear-gradient(to bottom right, #8a2387, #e94057, #f27121);
+    background: linear-gradient(to bottom right, #8a2387, #e94057, #f27121);
+    -webkit-background-clip: text;
+    background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .textarea ul .l1 {
-    background-color: none;
     display: flex;
     overflow-inline: visible;
     margin: 5px;
@@ -86,10 +118,18 @@ html>body .content {
 }
 
 .textarea ul .l1:hover {
-    background-color: rgb(0, 165, 255);
-    color: #F4F4F4;
+    background: -webkit-linear-gradient(to right, #8a2387, #e94057, #f27121);
+    background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+    color: #FFFFFF;
     padding-left: 20px;
     width: 160px;
+}
+
+.textarea ul .l1:hover > span {
+    background: #FFFFFF;
+    -webkit-background-clip: text;
+    background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .dc {
@@ -101,8 +141,10 @@ html>body .content {
     width: 100px;
     float: right;
     right: 32px;
-    border-radius: 50px;
-    box-shadow: 0 0 20px #3c3c3c;
+    top: 28px;
+    z-index: 1;
+    box-shadow: 0 0 20px #000000af;
+    border-radius: 50%;
     opacity: 1;
     transition: 0.5s ease-in-out;
 }
@@ -112,16 +154,16 @@ html>body .content {
     opacity: 0;
 }
 
-.textarea h2 {
+.textarea-top h2 {
     position: absolute;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
     top: 58px;
-    right: 54px;
+    right: 56px;
     margin-top: 10px;
     font-size: 24px;
     font-weight: 700;
-    color: rgb(0, 165, 255);
+    color: #FFFFFF;
 }
 
 /* media query stuff */
@@ -132,6 +174,11 @@ html>body .content {
         padding-left: 8vw;
         margin-left: 4vw;
     }
+
+    .textarea-top, .textarea-bottom {
+        width: 70vw;
+        padding-left: 8vw;
+    }
 }
 
 @media screen and (max-width: 520px) {
@@ -139,7 +186,6 @@ html>body .content {
         transition: 0s;
         visibility: hidden;
     }
-
     .textarea h2 {
         visibility: hidden;
     }
@@ -147,13 +193,22 @@ html>body .content {
 
 @media screen and (max-height: 400px) {
     .textarea {
-        height: 80vh;
+        height: 300px;
         min-height: 300px;
-        padding-top: 1vh;
-        padding-bottom: 1vh;
+        padding-top: 10px;
+        padding-bottom: 10px;
         float: top;
         top: 0;
         transform: translateY(0);
-        margin-top: 4vw;
+        margin-top: 20px;
+    }
+
+    .textarea-top h1 {
+        margin-top: -20px;
+        font-size: 48px;
+    }
+
+    .textarea-top p {
+        visibility: hidden;
     }
 }
