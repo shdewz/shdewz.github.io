@@ -2,30 +2,90 @@
 
 <html>
 
-    <head>
+<head>
 
-        <!-- VERY IMPORTANT STUFF -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>404 Not Found</title>
-        <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-        <link rel="stylesheet" href="../css/error.css" type="text/css">
+    <!-- VERY IMPORTANT STUFF -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/error.css" type="text/css">
 
-    </head>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
 
-    <body>
+        * {
+            font-family: Roboto;
+        }
 
-        <div class="not-found-bg">
-                <div class="not-found-content">
-                    <label class="l1" data-text="404">404</label><br/>
-                    <label class="l2" data-text="page not found">page not found</label>
-                </div>
-            </div>
+        .not-found-bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-        <!-- THIS IS VERY IMPORTANT, IT MAKES THE SITE LOOK BETTER -->
-        <style> img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] { display: none;} </style>
+        .not-found-content {
+            width: 400px;
+            height: auto;
+            color: #000000;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+        }
 
-    </body>
+        .not-found-content .l1 {
+            color: #ffffff;
+            font-size: 128pt;
+        }
+
+        .not-found-content .l2 {
+            color: #ffffff;
+            font-size: 36pt;
+        }
+
+        .not-found-content label:before {
+            content: attr(data-text);
+            position: absolute;
+            background: linear-gradient(90deg, #d800ff, #0084ff, #00ff8a, #d800ff);
+            background-size: 300%;
+            overflow: hidden;
+            transition: width 2s;
+            animation: an 10s linear infinite;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes an {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 300% 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="not-found-bg">
+        <div class="not-found-content">
+            <label class="l1" data-text="404">404</label><br />
+            <label class="l2" data-text="page not found">page not found</label>
+        </div>
+    </div>
+
+</body>
 
 </html>
