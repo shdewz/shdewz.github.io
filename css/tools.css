@@ -1,1 +1,68 @@
+* {
+    font-family: 'Rubik', sans-serif;
+}
 
+html, body {
+    margin: 0;
+    background-color: #b2bec3;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.title {
+    font-size: 48px;
+}
+
+.tools-area {
+    margin: 32px;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.tool-card {
+    display: inline-block;
+    background-color: #636e72;
+    height: 96px;
+    width: 400px;
+    overflow: hidden;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: 0.25s ease-out;
+    margin: 32px 16px;
+}
+
+.tool-card h1 {
+    padding: 8px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tool-preview {
+    width: auto;
+    height: auto;
+    margin: 16px;
+}
+
+.tool-preview img {
+    width: 100%;
+    border: 2px solid white;
+}
+
+.tool-card .button {
+    background-color: #6c5ce7;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 0.25s ease-out;
+}
+
+.tool-card .button:hover {
+    padding: 15px 64px;
+}
