@@ -3,17 +3,39 @@
 <head>
     <title>osu! calculators | shdewz</title>
     <meta charset="UTF-8">
-    <link href="../css/osu-tools.css" rel="stylesheet" type="text/css">
+    <link href="css/tools.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
 
-    <h1>tool stuff</h1>
-    <h3>osu!</h3>
-    <ul>
-        <li><a href="tools/statcard.html">statcard generator</a></li>
-    </ul>
-    
+    <h1 class="title">shdewz' scuffed tools</h1>
+    <div class="tools-area">
+        <div class="tool-card">
+            <h1>statcard generator</h1>
+            <div class="tool-preview">
+                <img src="img/statcard-preview.png">
+            </div>
+            <a href="tools/statcard.html" class="button">try it out</a>
+        </div>
+    </div>
+
+    <script>
+
+        $(".tool-card").click(function ()
+        {
+            if ($(this).css("height") != "316px")
+            {
+                $(this).css({ "height": "316px", "background-color": "#a29bfe" });
+            }
+            else
+            {
+                $(this).css({ "height": "96px", "background-color": "#636e72" });
+            }
+        });
+
+    </script>
+
 </body>
