@@ -98,7 +98,7 @@ function render()
             pfp.onload = () => { c.drawImage(pfp, 15, 15, 110, 110); };
 
             var flag = new Image;
-            flag.src = `http://www.geonames.org/flags/x/${country}.gif`;
+            flag.src = `https://www.geonames.org/flags/x/${country}.gif`;
             flag.onload = () => { c.drawImage(flag, 540, 60, 50, 30); };
 
             var today = new Date();
