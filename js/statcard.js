@@ -108,7 +108,7 @@ function render()
 
             c.font = "italic 400 12px Rubik";
             c.textAlign = "right";
-            c.fillText(`Generated on ${mm}/${dd}/${yyyy} at shdewz.github.io/osu/statcard`, 590, 190);
+            c.fillText(`Generated on ${mm}/${dd}/${yyyy} at shdewz.github.io/tools/statcard`, 590, 190);
 
             canvas.style.visibility = "visible";
             document.getElementById("errorlabel").innerHTML = "";
