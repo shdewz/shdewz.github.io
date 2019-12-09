@@ -115,7 +115,7 @@ function calculate() {
 
                 // write down the results
                 document.getElementById("result").innerHTML = "";
-                document.getElementById("result").innerHTML = `Current pp: <b>${Math.round(ppfull)}pp</b><br/>pp after ${Math.round(ppraw)}pp play: <b>${Math.round(newpp)}pp</b><br/>Difference: <b>${diffsymbol}${differencerounded}pp</b>`;
+                document.getElementById("result").innerHTML = `<span class="desc">Current pp:</span> <b>${Math.round(ppfull)}pp</b><br/><span class="desc">pp after ${Math.round(ppraw)}pp play:</span> <b>${Math.round(newpp)}pp</b><br/><hr/><span class="desc">Difference:</span> <b>${diffsymbol}${differencerounded}pp</b>`;
             }
 
             }).catch(function (error) {
