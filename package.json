@@ -1,0 +1,19 @@
+{
+  "name": "shdewz.github.io",
+  "version": "1.0.0",
+  "description": "this is a readme",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shdewz/shdewz.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shdewz/shdewz.github.io/issues"
+  },
+  "homepage": "https://github.com/shdewz/shdewz.github.io#readme"
+}
