@@ -104,7 +104,7 @@ html>body .content {
     background: linear-gradient(to bottom right, #8a2387, #e94057, #f27121);
     -webkit-background-clip: text;
     background-clip: text;
-	-webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 .textarea ul .l1 {
@@ -125,11 +125,11 @@ html>body .content {
     width: 160px;
 }
 
-.textarea ul .l1:hover > span {
+.textarea ul .l1:hover>span {
     background: #FFFFFF;
     -webkit-background-clip: text;
     background-clip: text;
-	-webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 .dc {
@@ -174,7 +174,6 @@ html>body .content {
         padding-left: 8vw;
         margin-left: 4vw;
     }
-
     .textarea-top, .textarea-bottom {
         width: 70vw;
         padding-left: 8vw;
@@ -202,12 +201,10 @@ html>body .content {
         transform: translateY(0);
         margin-top: 20px;
     }
-
     .textarea-top h1 {
         margin-top: -20px;
         font-size: 48px;
     }
-
     .textarea-top p {
         visibility: hidden;
     }
