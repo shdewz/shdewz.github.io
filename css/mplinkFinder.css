@@ -144,12 +144,12 @@ input {
     margin: 8px 0;
     margin-bottom: 16px;
     box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 10px;
-    transition: 0.5s;
+    transition: 1s;
 }
 
 .button:hover {
     background-color: #742f2f;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     transition: 0.2s;
 }
 
