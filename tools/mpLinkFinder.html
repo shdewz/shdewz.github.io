@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <!-- VERY IMPORTANT STUFF -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>osu! net pp calculator</title>
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/mplinkFinder.css" type="text/css">
+    <script src="../js/mplinkFinder.js"></script>
+
+</head>
+
+<body>
+
+    <!-- TITLE AREA -->
+    <div class="title">
+        <h1>osu! mp link finder</h1>
+        <h3><em>by <a href="#">shdewz</a></em></h3>
+    </div>
+
+    <!-- INPUT BOX -->
+    <div class="inputfield">
+        <form class="form">
+            <br>
+            <div class="type-select">
+                <label for="type">Search type</label>
+                <select id="gamemode">
+                    <option>By title keyword</option>
+                    <option>By player</option>
+                    <option>By map</option>
+                </select>
+            </div>
+
+            <label for="startid">Start from</label>
+            <input type="text" id="startid" name="startid">
+
+            <label for="keyword">Keyword/UserID/MapID</label>
+            <input type="text" id="keyword" name="keyword">
+
+            <label for="retries">Max retries</label>
+            <input type="text" id="retries" name="retries">
+
+            <label for="apikey">API Key</label>
+            <input type="password" id="apikey" name="apikey">
+            <br>
+            <a href="#" class="button" onclick='searchMpByName()'>Search!</a>
+        </form>
+    </div>
+</body>
+
+</html>
