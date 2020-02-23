@@ -2,8 +2,8 @@ function calculate() {
 
     // get values from the input fields
     var uid = document.getElementById("uid").value;
-    var ppraw = parseFloat(document.getElementById("rawpp").value); 
-    var overwrite = parseInt(document.getElementById("overwrite").value);   
+    var ppraw = parseFloat(document.getElementById("rawpp").value);
+    var overwrite = parseInt(document.getElementById("overwrite").value);
     var apikey = document.getElementById("apikey").value;
     var select = document.getElementById("gamemode").value;
 
@@ -26,9 +26,9 @@ function calculate() {
     var mode = 0;
 
     // adjust the gamemode
-    if (select == "taiko"){ mode = 1; }
-    else if (select == "catch"){ mode = 2; }
-    else if (select == "mania"){ mode = 3; }
+    if (select == "taiko") { mode = 1; }
+    else if (select == "catch") { mode = 2; }
+    else if (select == "mania") { mode = 3; }
     else { mode = 0; } // unnecessary but whatever
 
     // get the top 100 plays from the api
@@ -37,7 +37,7 @@ function calculate() {
     }).then(function (rawjson) {
 
         // add the pp values of the plays to an array
-        var json_array = rawjson;                 
+        var json_array = rawjson;
         for (var j in json_array) {
             scores[scores.length] = parseFloat(json_array[j].pp);
         }
@@ -51,29 +51,29 @@ function calculate() {
         }).then(function (rawjsonuser) {
 
             // take the total pp
-            var json_array_user = rawjsonuser;               
+            var json_array_user = rawjsonuser;
             for (var ju in json_array_user) {
                 ppfull = json_array_user[ju].pp_raw;
             }
 
             // see if the inputted pp is below the lowest score
-            if (scores.length >= 100 && ppraw < scores[scores.length - 1]){
+            if (scores.length >= 100 && ppraw < scores[scores.length - 1]) {
                 console.log('Play outside top100.');
                 document.getElementById("result").innerHTML = `<b>${ppraw}pp</b> is outside of your top 100 plays (lowest <b>${bottomscore}pp</b>).<br/><br/>No change in total pp.`;
             }
-            else{
+            else {
                 // apply weighting to the old scores and insert them to a new list
                 var i = 1;
-                for (var score in scores){
+                for (var score in scores) {
                     scoresoldw[scoresoldw.length] = scores[i - 1] * Math.pow(0.95, i - 1);
                     i++;
                 }
                 // see if overwriting is selected
-                if (overwrite !== "" && Number.isInteger(overwrite) && overwrite <= 100){
+                if (overwrite !== "" && Number.isInteger(overwrite) && overwrite <= 100) {
                     // remove the corresponding score
                     scores.splice(overwrite - 1, 1);
                 }
-                else{
+                else {
                     // remove the last score
                     scores.pop();
                 }
@@ -84,7 +84,7 @@ function calculate() {
 
                 // apply weighting again with the new score in place
                 var ii = 1;
-                for (var score in scores){
+                for (var score in scores) {
                     weighedscores[weighedscores.length] = scores[ii - 1] * Math.pow(0.95, ii - 1);
                     ii++;
                 }
@@ -118,17 +118,17 @@ function calculate() {
                 document.getElementById("result").innerHTML = `<span class="desc">Current pp:</span> <b>${Math.round(ppfull)}pp</b><br/><span class="desc">pp after ${Math.round(ppraw)}pp play:</span> <b>${Math.round(newpp)}pp</b><br/><hr/><span class="desc">Difference:</span> <b>${diffsymbol}${differencerounded}pp</b>`;
             }
 
-            }).catch(function (error) {
-                console.error('something broke');
-                console.error(error);
-                document.getElementById("result").innerHTML = error;
-            })
-
         }).catch(function (error) {
             console.error('something broke');
             console.error(error);
             document.getElementById("result").innerHTML = error;
         })
 
-        
-    }
+    }).catch(function (error) {
+        console.error('something broke');
+        console.error(error);
+        document.getElementById("result").innerHTML = error;
+    })
+
+
+}

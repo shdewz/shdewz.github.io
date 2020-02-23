@@ -1,5 +1,4 @@
-function render()
-{
+function render() {
     var canvas = document.querySelector("canvas");
     canvas.width = canvas.scrollWidth;
     canvas.height = canvas.scrollHeight;
@@ -12,15 +11,12 @@ function render()
     var modetext = ["osu!", "osu!taiko", "osu!catch", "osu!mania"][mode];
 
     // get stats
-    const userStatRequest = async () =>
-    {
-        try
-        {
+    const userStatRequest = async () => {
+        try {
             const response = await fetch(`https://osu.ppy.sh/api/get_user?k=${apikey}&m=${mode}&u=${uid}`);
             const userjson = await response.json();
 
-            for (var u in userjson)
-            {
+            for (var u in userjson) {
                 // put stuff to variables
                 var username = userjson[u].username;
                 var userid = userjson[u].user_id;
@@ -113,8 +109,7 @@ function render()
             canvas.style.visibility = "visible";
             document.getElementById("errorlabel").innerHTML = "";
         }
-        catch (error)
-        {
+        catch (error) {
             console.log(error);
             document.getElementById("errorlabel").innerHTML = error;
         }
@@ -123,14 +118,12 @@ function render()
 }
 
 // add comma as thousand separator
-function ac(num)
-{
+function ac(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 // add large number suffixes
-function as(num)
-{
+function as(num) {
     if (num <= 10000) // 1,000
     {
         return ac(num);
@@ -178,8 +171,7 @@ function as(num)
 }
 
 // new time calc
-function timeSince(past)
-{
+function timeSince(past) {
     var suffix;
     var prefix;
     var today = new Date();
@@ -188,35 +180,30 @@ function timeSince(past)
     var monthDiff = dayDiff / (365.2422 / 12);
     var yearDiff = dayDiff / 365.2422;
 
-    if (dayDiff < 365.2422 / 12)
-    {
+    if (dayDiff < 365.2422 / 12) {
         if (Math.round(dayDiff) == 1) { suffix = " day ago"; }
         else { suffix = " days ago"; }
         prefix = "";
         return prefix + Math.round(dayDiff) + suffix;
     }
-    else if (dayDiff < 365.2422)
-    {
+    else if (dayDiff < 365.2422) {
         if (Math.round(monthDiff) == 1) { suffix = " month ago"; }
         else { suffix = " months ago"; }
         prefix = "";
         return prefix + Math.round(monthDiff) + suffix;
     }
-    else if (dayDiff >= 365.2422)
-    {
+    else if (dayDiff >= 365.2422) {
         if (Math.round(yearDiff * 10) / 10 == 1) { suffix = " year ago"; }
         else { suffix = " years ago"; }
         prefix = "";
         return prefix + Math.round(yearDiff * 10) / 10 + suffix;
     }
-    else
-    {
+    else {
         return "<date calc error>";
     }
 }
 
 // format the date to mm/dd/yyyy
-function formatDate(value)
-{
+function formatDate(value) {
     return value.getMonth() + 1 + "/" + value.getDate() + "/" + value.getFullYear();
 }

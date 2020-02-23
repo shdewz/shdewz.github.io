@@ -31,14 +31,11 @@
 
     <script>
 
-        $(".tool-card").click(function ()
-        {
-            if ($(this).css("height") != "316px")
-            {
+        $(".tool-card").click(function () {
+            if ($(this).css("height") != "316px") {
                 $(this).css({ "height": "316px", "background-color": "#a29bfe" });
             }
-            else
-            {
+            else {
                 $(this).css({ "height": "96px", "background-color": "#636e72" });
             }
         });
