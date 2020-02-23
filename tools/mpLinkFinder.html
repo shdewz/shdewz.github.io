@@ -7,7 +7,7 @@
     <!-- VERY IMPORTANT STUFF -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>osu! net pp calculator</title>
+    <title>osu! mp link finder</title>
     <link rel="shortcut icon" type="image/png" href="../img/favicon.png" />
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,700i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/mplinkFinder.css" type="text/css">
@@ -20,36 +20,56 @@
     <!-- TITLE AREA -->
     <div class="title">
         <h1>osu! mp link finder</h1>
-        <h3><em>by <a href="#">shdewz</a></em></h3>
+        <h3><em>by <a href="https://osu.ppy.sh/u/10000899">shdewz</a></em></h3>
     </div>
 
     <!-- INPUT BOX -->
     <div class="inputfield">
         <form class="form">
             <br>
+
             <div class="type-select">
                 <label for="type">Search type</label>
                 <select id="gamemode">
-                    <option>By title keyword</option>
-                    <option>By player</option>
-                    <option>By map</option>
+                    <option>Lobby name</option>
+                    <option disabled>Player</option>
+                    <option disabled>Map</option>
                 </select>
             </div>
 
-            <label for="startid">Start from</label>
-            <input type="text" id="startid" name="startid">
+            <div class="type-select">
+                <label for="startid"><em>Start from</em></label>
+                <input type="text" id="startid" name="startid">
+                <span>ID of the mp link to start searching from (e.g. 42069420)</span>
+            </div>
 
-            <label for="keyword">Keyword/UserID/MapID</label>
-            <input type="text" id="keyword" name="keyword">
+            <div class="type-select">
+                <label for="keyword">Keyword/UserID/MapID</label>
+                <input type="text" id="keyword" name="keyword">
+            </div>
 
-            <label for="retries">Max retries</label>
-            <input type="text" id="retries" name="retries">
+            <div class="type-select">
+                <label for="retries"><em>Max retries</em></label>
+                <input type="text" id="retries" name="retries">
+                <span>Maximum amount of mp links to go through (200-300 is enough most of the time)</span>
+            </div>
 
-            <label for="apikey">API Key</label>
-            <input type="password" id="apikey" name="apikey">
+            <div class="type-select">
+                <label for="apikey"><a href="https://old.ppy.sh/p/api">API Key</a></label>
+                <input type="password" id="apikey" name="apikey">
+            </div>
+
             <br>
+
             <a href="#" class="button" onclick='searchMpByName()'>Search!</a>
         </form>
+    </div>
+
+    <!-- RESULT BOX -->
+    <div class="result" id="resultbox">
+        <label id="progress">0/0</label>
+        <br>
+        <label id="result"></label>
     </div>
 </body>
 
