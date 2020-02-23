@@ -30,10 +30,10 @@
 
             <div class="type-select">
                 <label for="type">Search type</label>
-                <select id="gamemode">
+                <select id="type">
                     <option>Lobby name</option>
-                    <option disabled>Player</option>
-                    <option disabled>Map</option>
+                    <option>Player</option>
+                    <option>Map</option>
                 </select>
             </div>
 
@@ -61,13 +61,13 @@
 
             <br>
 
-            <a href="#" class="button" onclick='searchMpByName()'>Search!</a>
+            <a href="#" class="button" onclick='searchMatch(document.getElementById("type").value)'>Search!</a>
         </form>
     </div>
 
     <!-- RESULT BOX -->
     <div class="result" id="resultbox">
-        <label id="progress">0/0</label>
+        <label id="progress"></label>
         <br>
         <label id="result"></label>
     </div>
