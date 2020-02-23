@@ -38,23 +38,61 @@ body {
 
 /* INPUT BOX */
 
-.form label {
+.type-select label {
     margin-top: 10px;
     float: right;
     padding-right: 12px;
     width: 300px;
     text-transform: uppercase;
     text-align: left;
-    display: inline-block;
     color: #ffffff;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-.form .required {
-    padding: 0;
+.type-select label a {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.type-select span {
+    visibility: hidden;
+    opacity: 0;
+    width: 284px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -38px;
+    background-color: #4e2323;
+    color: #ffffff;
     text-align: center;
-    text-transform: uppercase;
-    font-size: 12px;
+    padding: 4px 8px;
+    position: absolute;
+    z-index: 1;
+    transition: 0.2s;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.type-select span:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: -5px;
+    background: #4e2323;
+    z-index: -1;
+    left: 10%;
+    transform: translateX(-10%) rotate(45deg);
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 4px;
+}
+
+.type-select label:hover~span {
+    visibility: visible;
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.5) 4px 4px 8px;
+}
+
+.type-select {
+    position: relative;
+    width: auto;
 }
 
 .inputfield {
@@ -89,6 +127,10 @@ input {
     box-shadow: rgba(0, 0, 0, 0.5) 4px 4px 8px;
 }
 
+.type-select select option:disabled {
+    background-color: #504141;
+}
+
 .button {
     background-color: #4e2323;
     width: 200px;
@@ -114,126 +156,20 @@ input {
 /* RESULT BOX */
 
 .result {
-    width: 500px;
-    margin: 10px auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: #6c5ce7;
+    width: 550px;
+    margin: -26px 26px;
+    background-color: #ff8383;
+    position: relative;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.5) 10px 10px 10px;
+    visibility: hidden;
 }
 
 .result label {
-    font-size: 20px;
-    margin-top: 10px;
-    padding: 10px;
-    color: #ffffff;
-}
-
-.desc {
-    color: #d9d5ff;
-    font-style: italic;
-}
-
-/* HELP BOX */
-
-.help {
-    width: 500px;
-    color: #ffffff;
-    margin: 10px auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: #6c5ce7;
-}
-
-.help h1 {
-    text-align: center;
-    margin: 10px;
-}
-
-.help li {
-    margin: 10px;
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
-.help p {
-    margin: 10px;
-    font-size: 16px;
-    text-align: center;
-    color: #dfe6e9;
-}
-
-.help a {
-    color: #ffffff;
-}
-
-hr {
-    border: 1px solid #ffffff;
-    margin: 80px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-/* CHANGELOG */
-
-.changelog-bg {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.65);
-    position: fixed;
-    top: 0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.changelog-content {
-    width: 400px;
-    height: auto;
-    max-height: 80%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: #a29bfe;
-    color: #ffffff;
-    padding: 20px;
-    position: relative;
-}
-
-.changelog-content h1 {
-    font-size: 26px;
-}
-
-.changelog-section {
-    background-color: #322b6e;
-    padding: 10px;
-    margin: 20px;
-}
-
-.changelog-section ul {
-    list-style: "— ";
-}
-
-.close {
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    font-size: 40px;
-    transform: rotate(45deg);
-    cursor: pointer;
-}
-
-/* COLOR MODE */
-
-.buttonsmall {
-    background-color: #6c5ce7;
-    width: auto;
-    border: none;
-    color: white;
-    padding: 2px 32px;
-    text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
+    padding: 10px;
+    color: #ffffff;
 }
 
 /* SCALING */
@@ -242,22 +178,27 @@ hr {
     .inputfield {
         width: 300px;
     }
-    .result {
-        width: 300px;
-    }
-    .help {
-        width: 300px;
-    }
     .form label {
         padding-right: 0;
         margin-top: 10px;
         width: 200px;
+        float: none;
+        display: inline-block;
         text-align: center;
+    }
+    .type-select span {
+        width: 264px;
+        margin-left: -140px;
+    }
+    .type-select span:before {
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
     }
     .button {
         width: 136px;
     }
     .title {
+        width: 260px;
         height: 50px;
     }
     .title h1 {
