@@ -14,7 +14,7 @@ async function searchMpByName(apikey, startID, keyword, searchLimit) {
                     if (json.match.name.includes(keyword)) {
                         console.log(`-> https://osu.ppy.sh/mp/${mplink} <-`);
                         console.log(`Match found.`);
-                        document.getElementById("result").innerHTML = `Match found!<br><em>${json.match.name}</em><br>https://osu.ppy.sh/mp/${mplink}`
+                        document.getElementById("result").innerHTML = `Match found with keyword /b>${keyword}</b>!<br><em>${json.match.name}</em><br>https://osu.ppy.sh/mp/${mplink}`
                         found = true;
                         return;
                     }
@@ -58,7 +58,7 @@ async function searchMpByPlayer(apikey, startID, uid, searchLimit, username) {
                                 found = true;
                                 console.log(`-> https://osu.ppy.sh/mp/${mplink} <-`);
                                 console.log(`Match found with user '${username}'`);
-                                document.getElementById("result").innerHTML = `Match found with user '${username}'!<br><em>${json.match.name}</em><br>https://osu.ppy.sh/mp/${mplink}`
+                                document.getElementById("result").innerHTML = `Match found with user <b>${username}</b>!<br><em>${json.match.name}</em><br>https://osu.ppy.sh/mp/${mplink}`
                                 return;
                             }
                         }
@@ -103,7 +103,7 @@ async function searchMpByMap(apikey, startID, mapID, searchLimit) {
                                     var mapText = `${mapjson[0].artist} - ${mapjson[0].title} [${mapjson[0].version}]`
                                     console.log(`-> https://osu.ppy.sh/mp/${mplink} <-`);
                                     console.log(`Match found with map '${mapText}'`);
-                                    document.getElementById("result").innerHTML = `Match found with map '${mapText}'!<br><em>${json.match.name}</em><br>https://osu.ppy.sh/mp/${mplink}`
+                                    document.getElementById("result").innerHTML = `Match found with map <b>${mapText}</b>!<br><em>${json.match.name}</em><br>https://osu.ppy.sh/mp/${mplink}`
                                     return;
                                 })
                             return;
