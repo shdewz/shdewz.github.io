@@ -35,6 +35,7 @@
                     <option>Player</option>
                     <option>Map</option>
                 </select>
+                <span>What to search for. Player and map searches will take longer to complete</span>
             </div>
 
             <div class="type-select">
@@ -44,8 +45,12 @@
             </div>
 
             <div class="type-select">
-                <label for="keyword">Keyword/UserID/MapID</label>
+                <label for="keyword">Keyword/Player/Map</label>
                 <input type="text" id="keyword" name="keyword">
+                <span><em>Keyword:</em> <b>OWC</b>, <b>idke's game</b>, etc.<br>
+                    <em>Player:</em> <b>shdewz</b> or <b>10000899</b><br>
+                    <em>Map:</em> Difficulty ID (e.g. <b>948540</b>)
+                </span>
             </div>
 
             <div class="type-select">
@@ -57,11 +62,14 @@
             <div class="type-select">
                 <label for="apikey"><a href="https://old.ppy.sh/p/api">API Key</a></label>
                 <input type="password" id="apikey" name="apikey">
+                <span>Your API key (obtain from the link)</span>
             </div>
 
             <br>
 
-            <a href="#" class="button" onclick='searchMatch(document.getElementById("type").value)'>Search!</a>
+            <a href="#" class="button" onclick='searchMatch(document.getElementById("type").value)'>
+                Search!
+            </a>
         </form>
     </div>
 
