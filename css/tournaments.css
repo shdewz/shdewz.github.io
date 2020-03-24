@@ -1,0 +1,270 @@
+* {
+    font-family: 'Baloo 2', cursive;
+}
+
+body {
+    background-color: #a29bfe;
+}
+
+.center {
+    margin-top: 24px;
+    width: 800px;
+    height: auto;
+    background-color: #6c5ce7;
+    color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 12px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: -12px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.content {
+    height: auto;
+    background-color: #FFF;
+    color: #6c5ce7;
+    padding-bottom: 12px;
+}
+
+.content:before, .content:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.content:after {
+    clear: both;
+}
+
+.tournaments {
+    background-color: cyan;
+    position: relative;
+    height: 100px;
+}
+
+.selectbtn {
+    border: none;
+    background-color: Transparent;
+    margin: 12px;
+    margin-top: 24px;
+    cursor: pointer;
+    padding: 2px 8px;
+    transition: 0.2s ease-out;
+}
+
+.selectbtn.active {
+    background-color: #6c5ce7;
+    color: #FFF;
+    cursor: default;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 4px;
+}
+
+.selectbtn.active:hover {
+    padding: 2px 20px;
+    color: #FFF;
+}
+
+.selectbtn:hover {
+    color: #2d3436;
+    letter-spacing: 2px;
+}
+
+.filtered {
+    position: relative;
+    width: 90%;
+    display: none;
+    padding: 12px 24px;
+    text-align: left;
+    float: left;
+    border: 2px solid #6c5ce7;
+    margin: 16px 14px;
+}
+
+.show {
+    display: block;
+}
+
+.filtered h2 {
+    font-size: 32px;
+    font-weight: 700;
+    transition: 0.3s ease-out;
+}
+
+.filtered h2:hover {
+    letter-spacing: 2px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 90%;
+    margin: 48px 0;
+    float: left;
+    margin-left: 5%;
+    border-bottom: 4px solid #6c5ce7;
+}
+
+.separator span {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 0 8px;
+}
+
+.tourneyinfo {
+    letter-spacing: 1px;
+    margin-top: -8px;
+}
+
+.stats {
+    margin-top: 16px;
+    width: 100%;
+    height: 120px;
+}
+
+.stats.xl {
+    height: 165px;
+}
+
+.stats h3 {
+    margin-top: 4px;
+}
+
+.stats h1 {
+    font-weight: 700;
+    font-size: 38px;
+    margin-top: -26px;
+}
+
+.placement {
+    width: 140px;
+    height: 100px;
+    margin-top: 2px;
+    padding: 2px;
+    text-align: center;
+    float: left;
+    color: #FFF;
+    border-radius: 4px;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.stats.xl .placement {
+    height: 150px;
+}
+
+.stats.xl .placement h3 {
+    margin-top: 40px;
+}
+
+.placement h3 {
+    margin-top: 12px;
+    letter-spacing: 1px;
+}
+
+.placement h1 {
+    letter-spacing: 2px;
+}
+
+.placement.verybad {
+    background-color: #6c5ce7;
+}
+
+.placement.verybad h1 {
+    font-size: 30px;
+    margin-top: -18px;
+}
+
+.placement.notgood {
+    background-color: #a29bfe;
+}
+
+.placement.third {
+    background-color: #ffab73;
+}
+
+.placement.second {
+    background-color: #d6d6d6;
+}
+
+.placement.first {
+    background-color: #ffde82;
+}
+
+.tteam {
+    width: 560px;
+    height: 100px;
+    margin-top: 2px;
+    margin-left: 12px;
+    padding: 2px;
+    text-align: center;
+    float: left;
+}
+
+.tteam.xl {
+    height: 150px;
+}
+
+.tteamname {
+    position: absolute;
+    margin: -2px;
+    padding: 0 8px;
+    width: 560px;
+    height: 40px;
+    text-align: left;
+}
+
+.tteamname h3 {
+    letter-spacing: normal;
+    line-height: 20px;
+    position: relative;
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tteammembers {
+    position: relative;
+    margin: -2px;
+    margin-left: 2px;
+    padding: 2px;
+    width: 560px;
+    height: 48px;
+    margin-top: 48px;
+    grid-template-columns: auto auto auto auto;
+    display: inline-grid;
+    text-align: left;
+}
+
+.tteammembers.xl {
+    height: 96px;
+    margin-top: 48px;
+}
+
+.player {
+    text-align: left;
+    line-height: 20px;
+    padding: 2px;
+    font-size: 16px;
+    width: auto;
+    height: 20px;
+    transition: 0.3s ease-out;
+}
+
+.player:hover {
+    color: #2d3436;
+}
