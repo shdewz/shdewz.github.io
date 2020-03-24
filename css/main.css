@@ -21,7 +21,7 @@ html>body .content {
 .textarea {
     background-color: none;
     width: 600px;
-    height: 380px;
+    height: 420px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -50,7 +50,7 @@ html>body .content {
     bottom: 0;
     left: 0;
     width: 600px;
-    height: 236px;
+    height: 276px;
     background-color: #FFFFFF;
     padding: 32px;
     padding-top: 12px;
@@ -122,7 +122,7 @@ html>body .content {
     background: linear-gradient(to right, #8a2387, #e94057, #f27121);
     color: #FFFFFF;
     padding-left: 20px;
-    width: 160px;
+    width: 200px;
 }
 
 .textarea ul .l1:hover>span {
