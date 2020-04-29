@@ -40,7 +40,8 @@ h3 {
     padding-bottom: 12px;
 }
 
-.content:before, .content:after {
+.content:before,
+.content:after {
     content: "\0020";
     display: block;
     height: 0;
@@ -157,6 +158,15 @@ h3 {
     text-align: center;
     height: 24px;
     width: 24px;
+    transition: 0.2s ease-out;
+}
+
+.wl.nolink {
+    cursor: default;
+}
+
+.wl:hover {
+    box-shadow: #0000004f 0 0 6px;
 }
 
 .wl.w {
@@ -167,6 +177,55 @@ h3 {
 .wl.l {
     color: #ff7675;
     border: 2px solid #ff7675;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    color: #fff;
+    text-align: center;
+    padding: 4px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -130px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 6px;
+}
+
+.tooltip .tooltiptext.tipw {
+    background-color: #55efc4;
+}
+
+.tooltip .tooltiptext.tipl {
+    background-color: #ff7675;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.tooltip .tooltiptext.tipl::after {
+    border-color: #ff7675 transparent transparent transparent;
+}
+
+.tooltip .tooltiptext.tipw::after {
+    border-color: #55efc4 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
 
 .stats {
