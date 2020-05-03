@@ -40,8 +40,7 @@ h3 {
     padding-bottom: 12px;
 }
 
-.content:before,
-.content:after {
+.content:before, .content:after {
     content: "\0020";
     display: block;
     height: 0;
@@ -125,6 +124,14 @@ h3 {
     height: 120px;
     top: auto;
     bottom: 0;
+}
+
+.yearselect {
+    cursor: pointer;
+}
+
+.yearselect:hover {
+    color: #2d3436;
 }
 
 .separator {
