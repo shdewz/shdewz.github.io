@@ -117,57 +117,76 @@ function render() {
     userStatRequest();
 }
 
+async function renderShowcase() {
+    var canvas = document.querySelector("canvas");
+    canvas.width = canvas.scrollWidth;
+    canvas.height = canvas.scrollHeight;
+    var ctx = canvas.getContext("2d");
+
+    var apikey = document.getElementById("api").value;
+    var uid = document.getElementById("uid").value;
+
+    // get stats
+    try {
+        const response = await fetch(`https://osu.ppy.sh/api/get_user?k=${apikey}&u=${uid}`);
+        if (response.lenght == 0) return console.error("User not found.");
+        const userjson = await response.json();
+
+        var username = userjson[0].username;
+        var userid = userjson[0].user_id;
+        var avatarURL = "https://a.ppy.sh/" + userid;
+
+        // draw everything
+
+        canvas.style.width = "800px";
+        canvas.style.height = "200px";
+
+        ctx.fillStyle = "#FFFFFF";
+
+        ctx.shadowColor = "#000000";
+        ctx.shadowBlur = "8";
+
+        var avatar = new Image();
+        avatar.onload = () => { ctx.drawImage(avatar, 640, 40, 120, 120); }
+        avatar.src = avatarURL;
+
+        ctx.font = "80px MADE Tommy Soft Bold";
+        ctx.textAlign = "right";
+        ctx.fillText(username, 620, 120);
+
+        ctx.font = "20px MADE Tommy Soft Bold";
+        ctx.shadowBlur = "4";
+        ctx.textAlign = "center";
+        ctx.fillText("r e p l a y e r", 700, 26);
+
+        canvas.style.visibility = "visible";
+        document.getElementById("errorlabel").innerHTML = "";
+    }
+    catch (error) {
+        console.log(error);
+        document.getElementById("errorlabel").innerHTML = error;
+    }
+}
+
 // add comma as thousand separator
 function ac(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 // add large number suffixes
-function as(num) {
-    if (num <= 10000) // 1,000
-    {
-        return ac(num);
+function as(value) {
+    let newValue = value;
+    const suffixes = ["", " thousand", " million", " billion", " trillion"];
+    let suffixNum = 0;
+    while (newValue >= 1000) {
+        newValue /= 1000;
+        suffixNum++;
     }
-    else if (num <= 100000) // 10.0K
-    {
-        num /= 1000;
-        return ac(Math.round(num * 10) / 10) + "K";
-    }
-    else if (num <= 1000000) // 100K
-    {
-        num /= 1000;
-        return ac(num) + "K";
-    }
-    else if (num <= 10000000) // 1.00M
-    {
-        num /= 1000000;
-        return ac(Math.round(num * 100) / 100) + "M";
-    }
-    else if (num <= 100000000) // 10.0M
-    {
-        num /= 1000000;
-        return ac(Math.round(num * 10) / 10) + "M";
-    }
-    else if (num <= 1000000000) // 100M
-    {
-        num /= 1000000;
-        return ac(Math.round(num)) + "M";
-    }
-    else if (num <= 10000000000) // 1.00B
-    {
-        num /= 1000000000;
-        return ac(Math.round(num * 100) / 100) + "B";
-    }
-    else if (num <= 100000000000) // 10.0B
-    {
-        num /= 1000000000;
-        return ac(Math.round(num * 10) / 10) + "B";
-    }
-    else // 100B
-    {
-        num /= 1000000000;
-        return ac(Math.round(num)) + "B";
-    }
+
+    newValue = newValue.toPrecision(3);
+
+    newValue += suffixes[suffixNum];
+    return newValue;
 }
 
 // new time calc
