@@ -36,5 +36,8 @@
     <p>(will add styling later)</p>
 
     <script src="../js/statcard.js"></script>
+    <script>
+        if (document.cookie.includes("apikey")) document.getElementById("api").value = document.cookie.replace(/(?:(?:^|.*;\s*)apikey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    </script>
 
 </body>

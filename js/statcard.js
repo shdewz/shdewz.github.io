@@ -7,6 +7,8 @@ function render() {
     var apikey = document.getElementById("api").value;
     var uid = document.getElementById("uid").value;
 
+    saveKey(apikey);
+
     var mode = document.getElementById("mode").selectedIndex;
     var modetext = ["osu!", "osu!taiko", "osu!catch", "osu!mania"][mode];
 
@@ -126,6 +128,8 @@ async function renderShowcase() {
     var apikey = document.getElementById("api").value;
     var uid = document.getElementById("uid").value;
 
+    saveKey(apikey);
+
     // get stats
     try {
         const response = await fetch(`https://osu.ppy.sh/api/get_user?k=${apikey}&u=${uid}`);
@@ -166,6 +170,12 @@ async function renderShowcase() {
         console.log(error);
         document.getElementById("errorlabel").innerHTML = error;
     }
+}
+
+function saveKey(key) {
+    var d = new Date();
+    d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
+    document.cookie = `apikey=${key}; expires=${d.toUTCString()}; path=/`;
 }
 
 // add comma as thousand separator
