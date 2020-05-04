@@ -161,7 +161,7 @@ async function renderShowcase() {
         ctx.font = "20px MADE Tommy Soft Bold";
         ctx.shadowBlur = "4";
         ctx.textAlign = "center";
-        ctx.fillText("r e p l a y e r", 700, 26);
+        ctx.fillText("R E P L A Y E R", 700, 26);
 
         canvas.style.visibility = "visible";
         document.getElementById("errorlabel").innerHTML = "";
