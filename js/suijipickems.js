@@ -12,8 +12,14 @@ async function randomize() {
     for (var j = 0; j < 100; j++) {
         if (j >= 99) result = "**I proudly used the Suiji Pickem Randomizer to do my pickems!**<br>Here are my picks:<br><br>";
         for (var i = 0; i < 16; i++) {
-            var score1 = Math.floor(Math.random() * 7);
-            var score2 = score1 == 6 ? Math.floor(Math.random() * 6) : 6;
+            if (Math.random() < 0.5) {
+                score1 = 6;
+                score2 = Math.floor(Math.random() * 6);
+            }
+            else {
+                score1 = Math.floor(Math.random() * 6);
+                score2 = 6;
+            }
             var team1 = matchups[i].team1;
             var team2 = matchups[i].team2;
 
