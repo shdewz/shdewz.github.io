@@ -13,8 +13,6 @@
     <h1>suiji pickem randomizer</h1>
     <h3><em>last updated 11/05/2020 for ro16</em></h3>
 
-    <p>idk how random this is and i dont care either</p>
-
     <div class="matches">
         <div class="matches-group">
             <div class="match">
@@ -101,7 +99,14 @@
         </div>
     </div>
 
+    <div id="progress">
+        <div id="bar"></div>
+    </div>
+
     <button class="button" onclick="randomize()">randomize!</button>
+
+    <h2 id="share"></h2>
+    <p id="result"></p>
 </body>
 
 <style>
@@ -117,6 +122,14 @@
     h2 {
         font-size: 16px;
         margin-bottom: -12px;
+    }
+
+    #result {
+        width: 400px;
+        border: 2px solid rgb(255, 191, 228);
+        margin: 4px;
+        margin-top: 16px;
+        padding: 4px;
     }
 
     .button {
@@ -135,6 +148,22 @@
 
     .button:hover {
         letter-spacing: 2px;
+    }
+
+    #progress {
+        width: 700px;
+        padding: 4px;
+        margin: 4px;
+        background-color: #FFFFFF;
+        border: 2px solid rgb(255, 191, 228);
+        border-radius: 4px;
+    }
+
+    #bar {
+        width: 0%;
+        height: 30px;
+        background-color: rgb(255, 191, 228);
+        transition: 0.1s;
     }
 
     .match {
