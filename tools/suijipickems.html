@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I WILL WIN SUIJI PICKEMS</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700&display=swap" rel="stylesheet">
+    <script src="../js/suijipickems.js"></script>
+</head>
+
+<body>
+    <h1>suiji pickem randomizer</h1>
+    <h3><em>last updated 11/05/2020 for ro16</em></h3>
+
+    <p>idk how random this is and i dont care either</p>
+
+    <div class="matches">
+        <div class="matches-group">
+            <div class="match">
+                <h2 id="m1-title"></h2>
+                <p id="m1-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m2-title"></h2>
+                <p id="m2-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m3-title"></h2>
+                <p id="m3-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m4-title"></h2>
+                <p id="m4-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m5-title"></h2>
+                <p id="m5-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m6-title"></h2>
+                <p id="m6-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m7-title"></h2>
+                <p id="m7-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m8-title"></h2>
+                <p id="m8-score"></p>
+            </div>
+        </div>
+
+        <div class="matches-group">
+            <div class="match">
+                <h2 id="m9-title"></h2>
+                <p id="m9-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m10-title"></h2>
+                <p id="m10-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m11-title"></h2>
+                <p id="m11-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m12-title"></h2>
+                <p id="m12-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m13-title"></h2>
+                <p id="m13-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m14-title"></h2>
+                <p id="m14-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m15-title"></h2>
+                <p id="m15-score"></p>
+            </div>
+
+            <div class="match">
+                <h2 id="m16-title"></h2>
+                <p id="m16-score"></p>
+            </div>
+        </div>
+    </div>
+
+    <button class="button" onclick="randomize()">randomize!</button>
+</body>
+
+<style>
+    * {
+        font-family: Rubik;
+    }
+
+    h3 {
+        font-weight: 400;
+        margin-top: -16px;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin-bottom: -12px;
+    }
+
+    .button {
+        background-color: rgb(255, 191, 228);
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .button:hover {
+        letter-spacing: 2px;
+    }
+
+    .match {
+        background-color: #FFFFFF;
+        padding: 1px;
+        margin: 8px;
+        border-radius: 8px;
+    }
+
+    .matches {
+        width: 720px;
+        padding: 4px;
+        text-align: center;
+        display: flex;
+    }
+
+    .matches-group {
+        float: left;
+        display: block;
+        width: 360px;
+        margin-right: 8px;
+        background-color: rgb(255, 191, 228);
+        padding: 2px;
+        border-radius: 8px;
+    }
+</style>
+
+</html>
