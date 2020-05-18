@@ -43,67 +43,67 @@ async function randomize() {
 
 const matchups = [
     {
-        "team1": "Escargot",
-        "team2": "SKT T1"
-    },
-    {
-        "team1": "99woodcutting",
+        "team1": "SKT T1",
         "team2": "Pocket Gala"
     },
     {
         "team1": "stan kpop uwu",
-        "team2": "VROUM 365"
+        "team2": "squirrel pants"
     },
     {
-        "team1": "squirrel pants",
-        "team2": "the NATION"
-    },
-    {
-        "team1": "Australia",
-        "team2": "Stoof & Friends"
-    },
-    {
-        "team1": "Bad Omen",
+        "team1": "Stoof & Friends",
         "team2": "Cloud OD9"
     },
     {
-        "team1": "JTBulldozer",
-        "team2": "Milky Warfare"
-    },
-    {
-        "team1": "100 Thieves",
+        "team1": "Milky Warfare",
         "team2": "team"
     },
     {
-        "team1": "EU State of Asia",
+        "team1": "100 Thieves",
         "team2": "Chaoz Fantasy"
     },
     {
-        "team1": "HolySuiJesus",
-        "team2": "Edward Join Now"
+        "team1": "JTBulldozer",
+        "team2": "HolySuiJesus"
     },
     {
-        "team1": "Spork Lover Fanclub",
-        "team2": "metal frog"
+        "team1": "Bad Omen",
+        "team2": "Spork Lover Fanclub"
     },
     {
-        "team1": "Ketamine Racing",
+        "team1": "Australia",
         "team2": "PeepoLeave"
     },
     {
-        "team1": "Marek Marucha",
+        "team1": "the NATION",
         "team2": "Holy Jesus 2: Amen"
     },
     {
-        "team1": "The",
-        "team2": "Manchester United"
+        "team1": "VROUM 365",
+        "team2": "The"
     },
     {
-        "team1": "Team Solo Mald",
+        "team1": "99woodcutting",
         "team2": "Titanic of Stygian"
     },
     {
-        "team1": "suiji winners",
+        "team1": "Escargot",
         "team2": "furry zoo"
+    },
+    {
+        "team1": "Winner of E1",
+        "team2": "Winner of E2"
+    },
+    {
+        "team1": "Winner of E3",
+        "team2": "Winner of E4"
+    },
+    {
+        "team1": "Winner of E5",
+        "team2": "Winner of E6"
+    },
+    {
+        "team1": "Winner of E7",
+        "team2": "Winner of E8"
     }
 ]
