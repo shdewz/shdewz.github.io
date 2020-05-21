@@ -139,6 +139,8 @@ async function renderShowcase() {
         var username = userjson[0].username;
         var userid = userjson[0].user_id;
         var avatarURL = "https://a.ppy.sh/" + userid;
+        var rank = Number(userjson[0].pp_rank);
+        var country = userjson[0].country;
 
         // draw everything
 
@@ -156,11 +158,15 @@ async function renderShowcase() {
 
         ctx.font = "80px MADE Tommy Soft Bold";
         ctx.textAlign = "right";
-        ctx.fillText(username, 620, 120);
+        ctx.fillText(username, 620, 104);
 
-        ctx.font = "20px MADE Tommy Soft Bold";
-        ctx.shadowBlur = "4";
-        ctx.textAlign = "center";
+        ctx.font = "40px MADE Tommy Soft Bold";
+        ctx.shadowBlur = "6";
+        ctx.fillText("#" + rank.toLocaleString(), 550, 150);
+
+        var flag = new Image();
+        flag.onload = () => { ctx.drawImage(flag, 564, 118, 54, 36); }
+        flag.src = `https://osu.ppy.sh/images/flags/${country}.png`;
 
         canvas.style.visibility = "visible";
         document.getElementById("errorlabel").innerHTML = "";
