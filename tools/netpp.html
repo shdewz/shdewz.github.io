@@ -28,11 +28,11 @@
         <form class="form">
             <br>
             <label for="uid">Username / ID *</label>
-            <input type="text" id="uid" name="uid">
+            <input type="text" id="uid" name="uid" required>
 
             <div class="gamemode-select">
-                <label for="gamemode">Gamemode</label>
-                <select id="gamemode">
+                <label for="gamemode">Gamemode *</label>
+                <select id="gamemode" required>
                     <option>standard</option>
                     <option>taiko</option>
                     <option>catch</option>
@@ -41,38 +41,51 @@
             </div>
 
             <label for="rawpp">Raw pp *</label>
-            <input type="text" id="rawpp" name="rawpp">
+            <input type="text" id="rawpp" name="rawpp" required>
 
             <label for="overwrite">Overwrites</label>
             <input type="text" id="overwrite" name="overwrite">
 
             <label for="apikey">API Key *</label>
-            <input type="password" id="apikey" name="apikey">
-            <label class="required"><i>*required</i></label>
-            <br>
-            <a href="#" class="button" onclick="calculate()">Calculate</a>
+            <input type="password" id="apikey" name="apikey" required>
+            <br><br>
+            <a href="#" class="button" onclick="calculate(false)">Calculate</a>
+            <br><br>
         </form>
     </div>
 
     <!-- RESULT BOX -->
-    <div class="result">
+    <div class="inputfield" id="resultbox">
+        <br><br>
+        <div class="lds-ellipsis" id="loading">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="playername">
+            <h3 id="playername-text"></h3>
+        </div>
+        <table id="resulttable">
+            <tr>
+                <td class="row-header"><b>Current pp</b></td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="row-header"><b>pp After</b></td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="row-header"><b>Difference</b></td>
+                <td>-</td>
+            </tr>
+        </table>
         <label id="result"></label>
     </div>
-
-    <!-- HELP BOX -->
-    <div class="help">
-        <h1>How to use?</h1>
-        <hr>
-        <ol>
-            <li><b>Input your username or ID</b> (number in your profile link)</li>
-            <li><b>Select your preferred gamemode</b></li>
-            <li><b>Input the pp value</b> of a hypothetical play</li>
-            <li>If the play is an improved score of a previous play, input its position on your top 100 plays into the
-                <i>OVERWRITES</i> field</li>
-            <li><b>Input your API key</b> (<a href="https://osu.ppy.sh/p/api">get it from here</a>)</li>
-            <li><b>Click <i>Calculate</i></b></li>
-        </ol>
-    </div>
 </body>
+
+<script>
+    if (document.cookie.includes("apikey")) document.getElementById("apikey").value = document.cookie.replace(/(?:(?:^|.*;\s*)apikey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+</script>
 
 </html>

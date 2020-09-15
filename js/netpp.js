@@ -1,134 +1,119 @@
-function calculate() {
+async function calculate() {
+
+    document.getElementById("loading").style.visibility = "visible";
+    document.getElementById("playername-text").style.visibility = "hidden";
 
     // get values from the input fields
-    var uid = document.getElementById("uid").value;
-    var ppraw = parseFloat(document.getElementById("rawpp").value);
-    var overwrite = parseInt(document.getElementById("overwrite").value);
-    var apikey = document.getElementById("apikey").value;
-    var select = document.getElementById("gamemode").value;
+    let uid = document.getElementById("uid").value;
+    let ppraw = parseFloat(document.getElementById("rawpp").value);
+    let overwrite = parseInt(document.getElementById("overwrite").value);
+    let apikey = document.getElementById("apikey").value;
+    let select = document.getElementById("gamemode").value;
 
-    // declare the variables
-    var scores = [];
-    var scoresoldw = [];
-    var weighedscores = [];
+    saveKey(apikey);
 
-    var ppfull = 0;
-    var bottomscore = 0;
+    if (apikey == "") return;
 
-    var totalppold = 0;
-    var totalpp = 0;
-    var difference = 0;
-    var newpp = 0;
+    let scoresoldw = [];
+    let weighedscores = [];
 
-    var diffsymbol = "";
-    var differencerounded = 0;
+    let totalppold = 0;
+    let totalpp = 0;
+    let difference = 0;
+    let newpp = 0;
 
-    var mode = 0;
+    let diffsymbol = "";
+    let differencerounded = 0;
 
     // adjust the gamemode
+    let mode = 0;
     if (select == "taiko") { mode = 1; }
     else if (select == "catch") { mode = 2; }
     else if (select == "mania") { mode = 3; }
-    else { mode = 0; } // unnecessary but whatever
 
-    // get the top 100 plays from the api
-    fetch(`https://osu.ppy.sh/api/get_user_best?k=${apikey}&m=${mode}&limit=100&u=${uid}`).then(function (response) {
-        return response.json();
-    }).then(function (rawjson) {
+    let scores = await getPlays(uid, mode, apikey);
+    let user = await getUser(uid, mode, apikey);
 
-        // add the pp values of the plays to an array
-        var json_array = rawjson;
-        for (var j in json_array) {
-            scores[scores.length] = parseFloat(json_array[j].pp);
+    // see if the inputted pp is below the lowest score
+    if (scores.length >= 100 && ppraw < scores[scores.length - 1]) writeResults(ppraw, user.pp, user.pp, 0.00, "±");
+    else {
+        // apply weighting to the old scores and insert them to a new list
+
+        scoresoldw = scores.map((score, index) => score * Math.pow(0.95, index));
+
+        // see if overwriting is selected
+        if (overwrite !== "" && Number.isInteger(overwrite) && overwrite <= 100) scores.splice(overwrite - 1, 1);
+        else scores.pop();
+
+        // add the hypothetical play to the list and sort it
+        scores[scores.length] = ppraw;
+        scores.sort((a, b) => b - a);
+
+        // apply weighting again with the new score in place
+        weighedscores = [];
+        for (var i = 0; i < scores.length; i++) {
+            weighedscores[weighedscores.length] = scores[i] * Math.pow(0.95, i);
         }
 
-        // get the lowest score on the list
-        bottomscore = parseInt(scores[scores.length - 1]);
+        // sum the score arrays
+        totalppold = scoresoldw.reduce((a, b) => a + b, 0);
+        totalpp = weighedscores.reduce((a, b) => a + b, 0);
 
-        // get user stats
-        fetch(`https://osu.ppy.sh/api/get_user?k=${apikey}&m=${mode}&u=${uid}`).then(function (response) {
+        // calculate difference between the arrays and add it to the total pp
+        difference = parseFloat(totalpp) - parseFloat(totalppold);
+        newpp = parseFloat(user.pp) + parseFloat(difference);
+
+        // change the +/- symbol
+        if (difference < 0.005 && difference > -0.005) { diffsymbol = "±"; }
+        else if (difference >= 0.005) { diffsymbol = "+"; }
+        else { diffsymbol = ""; }
+
+        // adjust visible decimal places based on difference value
+        if (difference < 10 && difference > -10) { differencerounded = Math.round(difference * 100) / 100; }
+        else if (difference < 100 && difference > -100) { differencerounded = Math.round(difference * 10) / 10; }
+        else { differencerounded = Math.round(difference); }
+
+        // write down the results
+        writeResults(ppraw, user.pp, newpp, differencerounded, diffsymbol);
+        document.getElementById("loading").style.visibility = "hidden";
+        document.getElementById("playername-text").innerHTML = `What if ${user.username} got a ${Math.round(ppraw).toLocaleString()}pp play?`;
+        document.getElementById("playername-text").style.visibility = "visible";
+    }
+}
+
+async function getPlays(userid, mode, apikey) {
+    return new Promise(async resolve => {
+        fetch(`https://osu.ppy.sh/api/get_user_best?k=${apikey}&m=${mode}&limit=100&u=${userid}`).then(function (response) {
             return response.json();
-        }).then(function (rawjsonuser) {
+        }).then(plays => {
+            let scores = plays.map(play => Number(play.pp));
+            return resolve(scores);
+        });
+    });
+}
 
-            // take the total pp
-            var json_array_user = rawjsonuser;
-            for (var ju in json_array_user) {
-                ppfull = json_array_user[ju].pp_raw;
-            }
+async function getUser(userid, mode, apikey) {
+    return new Promise(async resolve => {
+        fetch(`https://osu.ppy.sh/api/get_user?k=${apikey}&m=${mode}&u=${userid}`).then(function (response) {
+            return response.json();
+        }).then(user => {
+            let userobj = {
+                username: user[0].username,
+                pp: Number(user[0].pp_raw)
+            };
+            return resolve(userobj);
+        });
+    });
+}
 
-            // see if the inputted pp is below the lowest score
-            if (scores.length >= 100 && ppraw < scores[scores.length - 1]) {
-                console.log('Play outside top100.');
-                document.getElementById("result").innerHTML = `<b>${ppraw}pp</b> is outside of your top 100 plays (lowest <b>${bottomscore}pp</b>).<br/><br/>No change in total pp.`;
-            }
-            else {
-                // apply weighting to the old scores and insert them to a new list
-                var i = 1;
-                for (var score in scores) {
-                    scoresoldw[scoresoldw.length] = scores[i - 1] * Math.pow(0.95, i - 1);
-                    i++;
-                }
-                // see if overwriting is selected
-                if (overwrite !== "" && Number.isInteger(overwrite) && overwrite <= 100) {
-                    // remove the corresponding score
-                    scores.splice(overwrite - 1, 1);
-                }
-                else {
-                    // remove the last score
-                    scores.pop();
-                }
+function saveKey(key) {
+    var d = new Date();
+    d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
+    document.cookie = `apikey=${key}; SameSite=Strict; Secure; expires=${d.toUTCString()}; path=/`;
+}
 
-                // add the hypothetical play to the list and sort it
-                scores[scores.length] = ppraw;
-                scores.sort((a, b) => b - a);
-
-                // apply weighting again with the new score in place
-                var ii = 1;
-                for (var score in scores) {
-                    weighedscores[weighedscores.length] = scores[ii - 1] * Math.pow(0.95, ii - 1);
-                    ii++;
-                }
-
-                // sum the score arrays
-                totalppold = scoresoldw.reduce((a, b) => a + b, 0);
-                totalpp = weighedscores.reduce((a, b) => a + b, 0);
-
-                // calculate difference between the arrays and add it to the total pp
-                difference = parseFloat(totalpp) - parseFloat(totalppold);
-                newpp = parseFloat(ppfull) + parseFloat(difference);
-
-                // debug outputs
-                console.log('old pp (calculated) ', totalppold);
-                console.log('old pp (true) ', ppfull);
-                console.log('difference ', difference);
-                console.log('new pp (calculated) ', totalpp);
-                console.log('new pp (true)', newpp);
-
-                // change the +/- symbol
-                if (difference < 0.005 && difference > -0.005) { diffsymbol = "±"; }
-                else if (difference >= 0.005) { diffsymbol = "+"; }
-                else { diffsymbol = ""; }
-
-                // adjust visible decimal places based on difference value
-                if (difference < 10 && difference > -10) { differencerounded = Math.round(difference * 100) / 100; }
-                else { differencerounded = Math.round(difference); }
-
-                // write down the results
-                document.getElementById("result").innerHTML = "";
-                document.getElementById("result").innerHTML = `<span class="desc">Current pp:</span> <b>${Math.round(ppfull)}pp</b><br/><span class="desc">pp after ${Math.round(ppraw)}pp play:</span> <b>${Math.round(newpp)}pp</b><br/><hr/><span class="desc">Difference:</span> <b>${diffsymbol}${differencerounded}pp</b>`;
-            }
-
-        }).catch(function (error) {
-            console.error('something broke');
-            console.error(error);
-            document.getElementById("result").innerHTML = error;
-        })
-
-    }).catch(function (error) {
-        console.error('something broke');
-        console.error(error);
-        document.getElementById("result").innerHTML = error;
-    })
-
-
+function writeResults(rawpp, oldpp, newpp, diff, diffsymbol) {
+    document.getElementById("resulttable").rows[0].cells[1].innerHTML = `${Math.round(oldpp).toLocaleString()}pp`;
+    document.getElementById("resulttable").rows[1].cells[1].innerHTML = `${Math.round(newpp).toLocaleString()}pp`;
+    document.getElementById("resulttable").rows[2].cells[1].innerHTML = `${diffsymbol}${diff.toLocaleString()}pp`;
 }

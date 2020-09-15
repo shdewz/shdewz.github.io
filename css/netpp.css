@@ -1,5 +1,13 @@
+:root {
+  --main-color: #673ab7;
+  --dark-color: #320b86;
+  --light-color: #9a67ea;
+  --light-gray: rgb(220, 220, 220);
+  --dark-gray: rgb(50, 50, 50);
+}
+
 body {
-  background-color: #322b6e;
+  background: linear-gradient(90deg, var(--main-color) 0%, var(--dark-color) 100%);
   margin: 0;
   padding: 0;
 }
@@ -36,80 +44,116 @@ body {
 /* INPUT BOX */
 
 .form label {
+  display: block;
   padding-right: 26px;
   width: 200px;
-  text-transform: uppercase;
-  text-align: right;
-  display: inline-block;
-  color: #ffffff;
-}
-
-.form .required {
-  padding: 0;
-  text-align: center;
-  text-transform: uppercase;
   font-size: 12px;
+  margin: 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  line-height: 1;
+  font-weight: bold;
+  color: var(--dark-gray);
 }
 
 .inputfield {
-  width: 500px;
+  position: relative;
+  width: 360px;
   margin: 10px auto;
+  padding: 8px 20px;
   margin-top: 30px;
-  background-color: #6c5ce7;
-  text-align: center;
+  background-color: white;
+  border-left: 12px solid var(--light-gray);
+  text-align: left;
+  color: var(--dark-gray);
+  box-shadow: var(--dark-gray) 0 0 32px;
 }
 
 input {
-  width: 200px;
-  padding: 6px 6px;
-  margin: 6px 0;
-  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 10px;
+  margin: 6px 0px 10px 0;
   border: none;
-  background-color: #322b6e;
-  color: white;
+  border-radius: 16px;
+  box-sizing: border-box;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  transition: ease-out 0.1s;
+}
+
+input:focus {
+  background-color: var(--dark-gray);
+  color: var(--light-gray);
+  box-shadow: var(--dark-gray) 0 0 6px;
 }
 
 .gamemode-select select {
-  width: 200px;
-  padding: 6px 6px;
-  margin: 6px 0;
+  width: 100%;
+  padding: 6px 10px;
+  margin: 6px 0px 10px 0;
   border: none;
-  background-color: #322b6e;
-  color: white;
+  border-radius: 16px;
+  box-sizing: border-box;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
   -webkit-appearance: button;
   appearance: button;
   outline: none;
 }
 
+.gamemode-select select:focus {
+  background-color: var(--dark-gray);
+  color: var(--light-gray);
+  box-shadow: var(--dark-gray) 0 0 6px;
+}
+
 .button {
-  background-color: #322b6e;
-  width: 200px;
+  background-color: var(--light-gray);
+  width: 60%;
   border: none;
-  color: white;
+  border-radius: 32px;
+  box-sizing: border-box;
+  color: var(--dark-gray);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
+  letter-spacing: 2px;
   display: inline-block;
   font-size: 16px;
-  margin: 8px 0;
+  margin: 8px 20%;
+  transition: ease-out 0.2s;
+}
+
+.button:hover {
+  background-color: var(--dark-gray);
+  color: var(--light-gray);
+  box-shadow: var(--dark-gray) 0 0 12px;
 }
 
 /* RESULT BOX */
 
-.result {
-  width: 500px;
-  margin: 10px auto;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #6c5ce7;
-  text-align: center;
-}
-
-.result label {
+#resultbox label {
   font-size: 20px;
   margin-top: 10px;
-  padding: 10px;
-  color: #ffffff;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  font-size: 14px;
+  border: none;
+}
+
+th, td {
+  padding: 4px 0px;
+}
+
+.row-header {
+  width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--dark-gray);
 }
 
 .desc {
@@ -117,137 +161,86 @@ input {
   font-style: italic;
 }
 
-/* HELP BOX */
+/* loading animation */
 
-.help {
-  width: 500px;
-  color: #ffffff;
-  margin: 10px auto;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #6c5ce7;
-}
-
-.help h1 {
+#playername {
   text-align: center;
-  margin: 10px;
-}
-
-.help li {
-  margin: 10px;
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-.help p {
-  margin: 10px;
-  font-size: 16px;
-  text-align: center;
-  color: #dfe6e9;
-}
-
-.help a {
-  color: #ffffff;
-}
-
-hr {
-  border: 1px solid #ffffff;
-  margin: 80px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* CHANGELOG */
-
-.changelog-bg {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.65);
-  position: fixed;
-  top: 0;
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.changelog-content {
-  width: 400px;
-  height: auto;
-  max-height: 80%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background-color: #a29bfe;
-  color: #ffffff;
-  padding: 20px;
-  position: relative;
-}
-
-.changelog-content h1 {
-  font-size: 26px;
-}
-
-.changelog-section {
-  background-color: #322b6e;
-  padding: 10px;
-  margin: 20px;
-}
-
-.changelog-section ul {
-  list-style: "— ";
-}
-
-.close {
   position: absolute;
-  top: 2%;
-  right: 2%;
-  font-size: 40px;
-  transform: rotate(45deg);
-  cursor: pointer;
+  left: 0;
+  top: 0;
+  visibility: visible;
 }
 
-/* COLOR MODE */
-
-.buttonsmall {
-  background-color: #6c5ce7;
-  width: auto;
-  border: none;
-  color: white;
-  padding: 2px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+#playername h3 {
   font-size: 16px;
+  font-weight: 200;
 }
 
-/* SCALING */
+.lds-ellipsis {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  visibility: hidden;
+}
 
-@media screen and (max-width: 600px) {
-  .inputfield {
-    width: 300px;
+.lds-ellipsis div {
+  position: absolute;
+  top: 17px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--dark-gray);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 4px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 4px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 16px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 28px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
   }
-  .result {
-    width: 300px;
+  100% {
+    transform: scale(1);
   }
-  .help {
-    width: 300px;
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
   }
-  .form label {
-    padding-right: 0;
-    margin-top: 10px;
-    width: 200px;
-    text-align: center;
+  100% {
+    transform: scale(0);
   }
-  .button {
-    width: 136px;
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
   }
-  .title {
-    height: 50px;
-  }
-  .title h1 {
-    font-size: 28px;
-  }
-  .help li {
-    margin-left: 20px;
-    margin-right: 20px;
+  100% {
+    transform: translate(12px, 0);
   }
 }
