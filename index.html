@@ -9,87 +9,9 @@
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,700i&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-
-    <script>
-        function copyDC() {
-            var str = "shdewz#0518";
-            var el = document.createElement('textarea');
-            el.value = str;
-            el.setAttribute('readonly', '');
-            el.style = { position: 'absolute', left: '-9999px' };
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-
-            // display copy message
-            var dc = document.getElementById("dct");
-            var dcl1 = document.getElementById("dcl1");
-            dc.innerHTML = "copied";
-
-            // change styles
-            dcl1.style.width = "180px";
-            dcl1.style.background = "linear-gradient(to right, #8a2387, #e94057, #f27121);";
-            dcl1.style.color = "#FFFFFF";
-            dcl1.style.paddingLeft = "30px";
-
-            // keep text for 2 seconds
-            setTimeout(function () {
-                dc.innerHTML = "discord";
-
-                // reset styles
-                dcl1.style.width = "";
-                dcl1.style.backgroundColor = "";
-                dcl1.style.color = "";
-                dcl1.style.paddingLeft = "";
-            }, 2000);
-        }
-    </script>
 </head>
 
 <body>
-
-    <div class="content">
-
-        <div class="textarea">
-
-            <div class="textarea-top">
-                <img class="pfp" src="img/favicon.ico">
-                <h2>hello</h2>
-
-                <h1><i>shdewz</i></h1>
-                <p><i>osu! player and a bad programmer</i></p>
-            </div>
-
-            <div class="textarea-bottom">
-                <ul>
-                    <a href="https://twitch.tv/shdewz">
-                        <li class="l1"><i class="fab fa-twitch"></i><span>twitch</span></li>
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCfJxlVJ2ucEmXF9uc_QuGew">
-                        <li class="l1"><i class="fab fa-youtube"></i><span>youtube</span></li>
-                    </a>
-                    <a href="https://osu.ppy.sh/u/10000899">
-                        <li class="l1"><i class="far fa-circle"></i><span>osu!</span></li>
-                    </a>
-                    <a href="https://github.com/shdewz">
-                        <li class="l1"><i class="fab fa-github"></i><span>github</span></li>
-                    </a>
-                    <a href="#" class="dc" onclick="copyDC()">
-                        <li class="l1" id="dcl1"><i class="fab fa-discord"></i><span id="dct">discord</span></li>
-                    </a>
-                    <a href="https://shdewz.github.io/tools">
-                        <li class="l1"><i class="fas fa-tools"></i><span>tools</span></li>
-                    </a>
-                    <a href="https://shdewz.github.io/tournaments">
-                        <li class="l1"><i class="fas fa-trophy"></i><span>tournaments</span></li>
-                    </a>
-                </ul>
-            </div>
-
-        </div>
-
-    </div>
-
+    <h1>will add something here soon :3</h1>
+    <h3>in the mean time, go check out some <a href="tools.html">funny tools!</a></h3>
 </body>

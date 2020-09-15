@@ -4,50 +4,77 @@
     <title>osu! tools | shdewz</title>
     <meta charset="UTF-8">
     <link href="css/tools.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <div class="header">
+        <h1 class="title">shdewz's tools</h1>
+    </div>
 
-    <h1 class="title">shdewz' scuffed tools</h1>
+    <!--
+    <div class="settings clear">
+        <form>
+            <div class="input-field">
+                <input type="password" id="api" required />
+                <label for="api">API key for osu! tools</label>
+            </div>
+            <div class="input-button">
+                <input type="button" class="button" value="Save">
+            </div>
+        </form>
+    </div>-->
+
+    <div class="tools-area clear">
+        <div class="tools-group">
+            <h3 class="tool-title">osu! tools</h3>
+            <a href="#">
+                <div class="tool">
+                    <h3>osu! stats (dead)</h3>
+                </div>
+            </a>
+            <a href="tools/netpp.html">
+                <div class="tool">
+                    <h3>net pp calculator</h3>
+                </div>
+            </a>
+            <a href="#">
+                <div class="tool">
+                    <h3>mp link finder (dead)</h3>
+                </div>
+            </a>
+        </div>
+
+        <div class="tools-group">
+            <h3 class="tool-title">other tools</h3>
+            <!--
+            <div class="tool">
+                <h3>statcard generator</h3>
+            </div>-->
+        </div>
+    </div>
+    <!--
     <div class="tools-area">
         <div class="tool-card">
             <h1>statcard generator</h1>
             <div class="tool-preview">
                 <img src="img/statcard-preview.png">
             </div>
-            <a href="tools/statcard" class="button">try it out</a>
+            <a href="tools/statcard.html" class="button">try it out</a>
         </div>
         <div class="tool-card">
             <h1>net pp calculator</h1>
             <div class="tool-preview">
                 <img src="https://i.imgur.com/ezHuucB.png">
             </div>
-            <a href="tools/netpp" class="button">it's farming time</a>
+            <a href="tools/netpp.html" class="button">it's farming time</a>
         </div>
         <div class="tool-card">
             <h1>mp link finder</h1>
-            <div class="tool-preview">
-                <p>Search for an mp link by the lobby name, player or map assuming you know when the lobby started. Useful for finding tournament match lobbies.</p>
-            </div>
-            <a href="tools/mpLinkFinder" class="button">who waits for qual results</a>
+            <a href="tools/mpLinkFinder.html" class="button">who waits for qual results</a>
         </div>
     </div>
-
-    <script>
-
-        /*
-        $(".tool-card").click(function () {
-            if ($(this).css("height") != "416px") {
-                $(this).css({ "height": "416px", "background-color": "#a29bfe" });
-            }
-            else {
-                $(this).css({ "height": "96px", "background-color": "#636e72" });
-            }
-        });*/
-
-    </script>
-
+-->
 </body>
