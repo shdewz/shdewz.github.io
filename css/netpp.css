@@ -86,6 +86,7 @@ input:focus {
   background-color: var(--dark-gray);
   color: var(--light-gray);
   box-shadow: var(--dark-gray) 0 0 6px;
+  outline: none;
 }
 
 .gamemode-select select {
@@ -106,6 +107,7 @@ input:focus {
   background-color: var(--dark-gray);
   color: var(--light-gray);
   box-shadow: var(--dark-gray) 0 0 6px;
+  outline: none;
 }
 
 .button {
