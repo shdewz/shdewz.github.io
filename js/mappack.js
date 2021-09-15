@@ -7,7 +7,8 @@ async function generate() {
     let index = 0;
     for (const id of ids) {
         index++;
-        if (map) maps.push({ id: id, blob: await download_map(id) });
+        let map = await download_map(id);
+        if (map) maps.push({ id: id, blob: map });
         else failed.push(id);
         $('#progress').css('width', Math.ceil((index / (ids.length + ids.length / 8)) * 100) + '%');
     }
