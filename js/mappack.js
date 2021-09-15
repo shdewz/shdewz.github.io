@@ -33,7 +33,7 @@ const export_zip = maps => {
         const fileName = `mappack-${ new Date().getTime()}.zip`;
         $('#progress').css('width', '100%');
         $('#progress-label').text(`Done`);
-        if (failed.length > 0) $('#progress-error').text(`The following maps were not downloaded:<br>${failed.join(', ')}`);
+        if (failed.length > 0) $('#progress-error').text(`The following maps were not downloaded: ${failed.join(', ')}`);
         failed, maps = [];
         return saveAs(file, fileName);
         
