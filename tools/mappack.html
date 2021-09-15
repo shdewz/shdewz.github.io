@@ -33,8 +33,8 @@
         <hr>
 
         <div class="sections">
-            <label for="fname">comma-separated string of map<b>set</b> ids</label>
-            <input type="text" id="setids" name="setids" placeholder="12035, 297933, 849824">
+            <label for="fname">comma-separated list of mapset ids</label>
+            <input type="text" id="setids" name="setids" placeholder="12035, 297933, 849824, ...">
             <a type="button" class="button" onclick="generate()"><i class="fas fa-play"></i>generate</a>
         </div>
 
@@ -47,3 +47,9 @@
         <p class="progress-label" id="progress-error"></p>
     </div>
 </body>
+
+<style>
+    #progress-error a {
+        text-decoration: underline;
+    }
+</style>
