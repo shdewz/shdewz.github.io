@@ -183,6 +183,14 @@ input[type=text], .progress-base {
     font-size: 0.8rem;
 }
 
+.footer {
+    margin: 1.2rem 0 -0.6rem 0;
+    font-size: 0.5rem;
+    color: rgb(90, 90, 90);
+    cursor: default;
+    user-select: none;
+}
+
 @media only screen and (max-width: 600px), screen and (max-height: 400px) {
     html, * {
         font-size: 12px;

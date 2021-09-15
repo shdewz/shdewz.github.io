@@ -27,7 +27,7 @@
         </div>
 
         <div class="description">
-            <p>easily generate a zip file of maps<br><br>this tool uses a lot of ram and might fail if there are too many maps. only maps available on chimu.moe may be downloaded.</p>
+            <p>easily generate a zip file of maps<br><br>this tool uses a lot of memory and might (will) fail if there are too many maps. <b>only maps available on chimu.moe may be downloaded</b>.<br>sometimes the tool may die on a random map because javascript is a great language.</p>
         </div>
 
         <hr>
@@ -45,6 +45,7 @@
         </div>
         <p class="progress-label" id="progress-label"></p>
         <p class="progress-label" id="progress-error"></p>
+        <h3 class="footer" id="footer">by shdewz</h3>
     </div>
 </body>
 
@@ -53,3 +54,9 @@
         text-decoration: underline;
     }
 </style>
+
+<script>
+    let options = { year: 'numeric', month: 'short', day: 'numeric'};
+    let modify_date = new Date(document.lastModified).toLocaleString('en-GB', options);
+    $('#footer').text(`by shdewz – last updated ${modify_date}`);
+</script>
