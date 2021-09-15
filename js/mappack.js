@@ -10,14 +10,14 @@ async function generate() {
     index = 0;
     max = ids.length + ids.length / 8;
 
-    let maps = await Promise.all(ids.map(async id => ({ id: id, blob: await download_map(id) })));
-    console.log(`${maps.filter(map => map.blob).length} map(s) successfully downloaded.`);
+    let maps = await Promise.all(ids.map(async id => ({ id: id, file: await download_map(id) })));
+    console.log(`${maps.filter(map => map.file).length} map(s) successfully downloaded.`);
 
-    let failed = maps.filter(map => !map.blob);
+    let failed = maps.filter(map => !map.file);
     if (failed.length > 0) $('#progress-error').wrapInner(`<i class="fas fa-exclamation-triangle"></i> The following maps were not downloaded:<br>${failed.map(e => `<a href="https://osu.ppy.sh/s/${e.id}">${e.id}</a>`).join(', ')}`);
 
     $('#progress-label').text(`Preparing zip file...`);
-    export_zip(maps.filter(map => map.blob));
+    export_zip(maps.filter(map => map.file));
 }
 
 const download_map = async id => {
@@ -25,13 +25,15 @@ const download_map = async id => {
     if (map.length == 0) return false;
     console.log(`Downloading ${map.Artist} - ${map.Title} (${id})...`);
     const url = `https://api.chimu.moe/v1/download/${id}?n=0`;
-    const response = await fetch(url);
+    let response = await fetch(url);
+
+    if (!response.ok) response = await fetch(url); // try again
 
     index++;
     $('#progress-label').text(`Downloading ${map.Artist} - ${map.Title}...`);
     $('#progress').css('width', Math.ceil((index / max) * 100) + '%');
 
-    return response.ok ? await response.blob() : false;
+    return response.ok ? { title: `${map.Artist} - ${map.Title}`, blob: await response.blob() } : false;
 }
 
 const get_map = async id => {
@@ -46,7 +48,7 @@ const export_zip = maps => {
         return;
     }
     const zip = new JSZip();
-    for (const map of maps) { zip.file(`${map.id}.osz`, map.blob) }
+    for (const map of maps) { zip.file(`${map.id} ${map.file.title}.osz`, map.file.blob) }
 
     zip.generateAsync({ type: 'blob' }).then(file => {
         const fileName = `mappack-${new Date().getTime()}.zip`;
