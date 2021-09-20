@@ -25,7 +25,7 @@ const download_map = async id => {
         update_progress(1);
         console.log(`Downloading ${map.Artist} - ${map.Title} (${id})...`);
 
-        const url = `https://api.chimu.moe/v1/download/${id}?n=0`;
+        const url = `https://api.chimu.moe/v1/download/${id}?n=1`;
         let response = await fetch(url, { method: 'GET', headers: { 'Origin': 'https://chimu.moe' } });
 
         if (!response.ok) return false;
