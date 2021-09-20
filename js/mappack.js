@@ -19,21 +19,26 @@ async function generate() {
 }
 
 const download_map = async id => {
-    const map = await get_map(id);
-    if (map.length == 0) return false;
-    update_progress(1);
-    console.log(`Downloading ${map.Artist} - ${map.Title} (${id})...`);
+    try {
+        const map = await get_map(id);
+        if (map.length == 0) return false;
+        update_progress(1);
+        console.log(`Downloading ${map.Artist} - ${map.Title} (${id})...`);
 
-    const url = `https://api.chimu.moe/v1/download/${id}?n=0`;
-    let response = await fetch(url, { method: 'GET', headers: { 'Origin': 'https://chimu.moe' } });
+        const url = `https://api.chimu.moe/v1/download/${id}?n=0`;
+        let response = await fetch(url, { method: 'GET', headers: { 'Origin': 'https://chimu.moe' } });
 
-    if (!response.ok) return false;
-    const blob = await response.blob();
-    update_progress(3);
-    p.finished++;
-    $('#progress-label').text(`Downloading maps... (${p.finished}/${p.total})`);
+        if (!response.ok) return false;
+        const blob = await response.blob();
+        update_progress(3);
+        p.finished++;
+        $('#progress-label').text(`Downloading maps... (${p.finished}/${p.total})`);
 
-    return { title: `${map.Artist} - ${map.Title}`, blob: blob };
+        return { title: `${map.Artist} - ${map.Title}`, blob: blob };
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 const get_map = async id => {
