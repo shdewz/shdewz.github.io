@@ -1,14 +1,12 @@
-let index = 0;
-let max = 1;
+let p = { bar: { index: 0, max: 0 }, finished: 0, total: 0 };
 
 async function generate() {
     const ids = $('#setids').val().replace(/\s+/g, '').split(',').filter(e => e);
     if (ids.length == 0) return;
+    p = { bar: { index: 0, max: ids.length * 4 + ids.length / 4 }, finished: 0, total: ids.length };
     $('#progress-base').css('visibility', 'visible');
-    $('#progress-label').text('');
+    $('#progress-label').text(`Downloading maps... (${p.finished}/${p.total})`);
     $('#progress-error').text('');
-    index = 0;
-    max = ids.length + ids.length / 8;
 
     let maps = await Promise.all(ids.map(async id => ({ id: id, file: await download_map(id) })));
     console.log(`${maps.filter(map => map.file).length} map(s) successfully downloaded.`);
@@ -23,17 +21,19 @@ async function generate() {
 const download_map = async id => {
     const map = await get_map(id);
     if (map.length == 0) return false;
+    update_progress(1);
     console.log(`Downloading ${map.Artist} - ${map.Title} (${id})...`);
+
     const url = `https://api.chimu.moe/v1/download/${id}?n=0`;
-    let response = await fetch(url);
+    let response = await fetch(url, { method: 'GET', headers: { 'Origin': 'https://chimu.moe' } });
 
-    if (!response.ok) response = await fetch(url); // try again
+    if (!response.ok) return false;
+    const blob = await response.blob();
+    update_progress(3);
+    p.finished++;
+    $('#progress-label').text(`Downloading maps... (${p.finished}/${p.total})`);
 
-    index++;
-    $('#progress-label').text(`Downloading ${map.Artist} - ${map.Title}...`);
-    $('#progress').css('width', Math.ceil((index / max) * 100) + '%');
-
-    return response.ok ? { title: `${map.Artist} - ${map.Title}`, blob: await response.blob() } : false;
+    return { title: `${map.Artist} - ${map.Title}`, blob: blob };
 }
 
 const get_map = async id => {
@@ -57,3 +57,5 @@ const export_zip = maps => {
         return saveAs(file, fileName);
     });
 }
+
+const update_progress = increment => { p.bar.index += increment; $('#progress').css('width', Math.ceil((p.bar.index / p.bar.max) * 100) + '%'); };
