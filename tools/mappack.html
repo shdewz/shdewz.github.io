@@ -27,7 +27,9 @@
         </div>
 
         <div class="description">
-            <p>easily generate a zip file of maps<br><br>this tool uses a lot of memory and might (will) fail if there are too many maps. <b>only maps available on chimu.moe may be downloaded</b>.<br>sometimes the tool may die on a random map because javascript is a great language.</p>
+            <p>easily generate a zip file of maps<br><br>this tool uses a lot of memory and might (will) fail if there
+                are too many maps. <b>only maps available on chimu.moe may be downloaded</b>.<br>sometimes the tool may
+                die on a random map because javascript is a great language.</p>
         </div>
 
         <hr>
@@ -35,7 +37,8 @@
         <div class="sections">
             <label for="fname">comma-separated list of mapset ids</label>
             <input type="text" id="setids" name="setids" placeholder="12035, 297933, 849824, ...">
-            <a type="button" class="button" onclick="generate()"><i class="fas fa-play"></i>generate</a>
+            <a type="button" class="button" style="width: 49.5%" onclick="generate(false)"><i class="fas fa-play"></i>generate</a>
+            <a type="button" class="button" style="width: 49.5%" onclick="generate(true)"><i class="fas fa-play"></i>generate (no video)</a>
         </div>
 
         <br>
@@ -56,7 +59,7 @@
 </style>
 
 <script>
-    let options = { year: 'numeric', month: 'short', day: 'numeric'};
+    let options = { year: 'numeric', month: 'long' };
     let modify_date = new Date(document.lastModified).toLocaleString('en-GB', options);
     $('#footer').text(`by shdewz – last updated ${modify_date}`);
 </script>
