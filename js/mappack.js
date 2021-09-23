@@ -22,10 +22,10 @@ const download_map = async id => {
     const map = await get_map(id);
     if (map.length == 0) return false;
     update_progress(1);
-    console.log(`Downloading ${map.Artist} - ${map.Title} (${id})...`);
+    console.log(`Downloading ${map.OsuFile.match(/(.* - .*) \(/)[1]} (${map.ParentSetId})...`);
 
-    const url = `https://api.chimu.moe/v1/download/${id}?n=1`;
-    let response = await fetch(url, { method: 'GET', headers: { 'Origin': 'https://chimu.moe' } });
+    const url = `https://api.chimu.moe/v1/download/${map.ParentSetId}?n=1`;
+    let response = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/json' } });
 
     if (!response.ok) return false;
     const blob = await response.blob();
@@ -33,7 +33,7 @@ const download_map = async id => {
     p.finished++;
     $('#progress-label').text(`Downloading maps... (${p.finished}/${p.total})`);
 
-    return { title: `${map.Artist} - ${map.Title}`, blob: blob };
+    return { title: `${map.OsuFile.match(/(.* - .*) \(/)[1]}`, blob: blob };
 }
 
 const export_zip = async (maps, novid) => {
@@ -59,5 +59,5 @@ const export_zip = async (maps, novid) => {
     return saveAs(file, fileName);
 }
 
-const get_map = async id => (await (await fetch(`https://api.chimu.moe/v1/set/${id}`)).json()).data;
+const get_map = async id => (await (await fetch(`https://api.chimu.moe/v1/map/${id}`)).json()).data;
 const update_progress = increment => { p.bar.index += increment; $('#progress').css('width', Math.ceil((p.bar.index / p.bar.max) * 100) + '%'); };
