@@ -25,7 +25,7 @@ const download_map = async id => {
     console.log(`Downloading ${map.OsuFile.match(/(.* - .*) \(/)[1]} (${map.ParentSetId})...`);
 
     const url = `https://api.chimu.moe/v1/download/${map.ParentSetId}?n=1`;
-    let response = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/json' } });
+    let response = await fetch(url);
 
     if (!response.ok) return false;
     const blob = await response.blob();
