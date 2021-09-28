@@ -12,7 +12,7 @@ async function generate(novid) {
     console.log(`${maps.filter(map => map.file).length} map(s) successfully downloaded.`);
 
     let failed = maps.filter(map => !map.file);
-    if (failed.length > 0) $('#progress-error').wrapInner(`<i class="fas fa-exclamation-triangle"></i> The following maps were not downloaded:<br>${failed.map(e => `<a href="https://osu.ppy.sh/s/${e.id}">${e.id}</a>`).join(', ')}`);
+    if (failed.length > 0) $('#progress-error').wrapInner(`<i class="fas fa-exclamation-triangle"></i> The following maps were not downloaded:<br>${failed.map(e => `<a href="https://osu.ppy.sh/b/${e.id}">${e.id}</a>`).join(', ')}`);
 
     $('#progress-label').text(`Preparing zip file...`);
     export_zip(maps.filter(map => map.file), novid);
