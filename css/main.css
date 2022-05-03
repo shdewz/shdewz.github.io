@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Roboto+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font: 'Roboto Mono';
+    --title-font: 'Patrick Hand';
+    --bg-color: rgb(24, 24, 24);
+    --gradient: linear-gradient(45deg, rgba(240, 90, 160, 1) 0%, rgba(255, 140, 70, 1) 100%);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background-color: var(--bg-color);
+    font-family: var(--font);
+    color: white;
+}
+
+.container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: var(--font);
+    font-size: 3rem;
+    width: 100%;
+}
+
+.title-text {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.subtitle-text {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.9;
+    font-size: 0.35em;
+    margin-top: -14px;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 1em;
+}
+
+li:not(:first-child) {
+    padding-left: 0.7ch;
+}
+
+li:not(:first-child)::before {
+    content: '|';
+    display: inline-block;
+    margin-right: 0.7ch;
+    width: 1ch;
+    text-align: center;
+    opacity: 0.2;
+    position: relative;
+    top: -1px;
+}
+
+.social {
+    text-decoration: none;
+    color: white;
+    transition: ease-out 200ms;
+    display: inline-block;
+    position: relative;
+}
+
+.social:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    opacity: 1;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 200ms ease-out;
+}
+
+.social:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.discord {
+    font-size: 0.8em;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+#copied {
+    font-size: 0.7em;
+    opacity: 0;
+    margin-top: -1px;
+    height: 1ch;
+    transition: 400ms ease-out;
+}
