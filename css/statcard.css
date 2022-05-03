@@ -1,0 +1,19 @@
+#canvas {
+    margin-top: 20px;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    border: 2px solid rgb(50, 50, 50);
+    box-shadow: 2px 2px 4px rgba(50, 50, 50, 0.5);
+}
+
+#errorlabel {
+    color: red;
+}
+
+@font-face {
+    font-family: 'MADE Tommy Soft Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('MADE Tommy Soft Bold'), url('../fonts/MADE Tommy Soft Bold.woff') format('woff');
+}

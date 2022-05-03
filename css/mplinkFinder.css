@@ -1,0 +1,211 @@
+body {
+    background-color: #2b2b2b;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: Rubik;
+}
+
+/* TITLE BOX */
+
+.title {
+    margin: 26px 48px;
+    height: 50px;
+    width: 500px;
+    text-align: left;
+    word-wrap: break-word;
+    color: #ffffff;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.title h1 {
+    margin-top: 10px;
+    margin-bottom: -20px;
+    font-weight: 700;
+}
+
+.title h3 {
+    font-weight: 400;
+}
+
+.title h3 a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* INPUT BOX */
+
+.type-select label {
+    margin-top: 10px;
+    float: right;
+    padding-right: 12px;
+    width: 300px;
+    text-transform: uppercase;
+    text-align: left;
+    color: #ffffff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.type-select label a {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.type-select span {
+    visibility: hidden;
+    opacity: 0;
+    width: 284px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -38px;
+    background-color: #4e2323;
+    color: #ffffff;
+    text-align: center;
+    padding: 4px 8px;
+    position: absolute;
+    z-index: 1;
+    transition: 0.2s;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.type-select span:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: -5px;
+    background: #4e2323;
+    z-index: -1;
+    left: 10%;
+    transform: translateX(-10%) rotate(45deg);
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 4px;
+}
+
+.type-select label:hover~span {
+    visibility: visible;
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.5) 4px 4px 8px;
+}
+
+.type-select {
+    position: relative;
+    width: auto;
+}
+
+.inputfield {
+    width: 550px;
+    margin: 48px 26px;
+    background-color: #ff8383;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.5) 10px 10px 10px;
+}
+
+input {
+    width: 150px;
+    padding: 6px 6px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #4e2323;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.5) 4px 4px 8px;
+}
+
+.type-select select {
+    width: 150px;
+    padding: 6px 6px;
+    margin: 6px 0;
+    border: none;
+    background-color: #4e2323;
+    color: white;
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.5) 4px 4px 8px;
+}
+
+.type-select select option:disabled {
+    background-color: #504141;
+}
+
+.button {
+    background-color: #4e2323;
+    width: 200px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 0;
+    margin-bottom: 16px;
+    box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 10px;
+    transition: 1s;
+}
+
+.button:hover {
+    background-color: #742f2f;
+    letter-spacing: 4px;
+    transition: 0.2s;
+}
+
+/* RESULT BOX */
+
+.result {
+    width: 550px;
+    margin: -26px 26px;
+    background-color: #ff8383;
+    position: relative;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.5) 10px 10px 10px;
+    visibility: hidden;
+}
+
+.result label {
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px;
+    color: #ffffff;
+}
+
+/* SCALING */
+
+@media screen and (max-width: 600px) {
+    .inputfield {
+        width: 300px;
+    }
+    .form label {
+        padding-right: 0;
+        margin-top: 10px;
+        width: 200px;
+        float: none;
+        display: inline-block;
+        text-align: center;
+    }
+    .type-select span {
+        width: 264px;
+        margin-left: -140px;
+    }
+    .type-select span:before {
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+    }
+    .button {
+        width: 136px;
+    }
+    .title {
+        width: 260px;
+        height: 50px;
+    }
+    .title h1 {
+        font-size: 28px;
+    }
+    .help li {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

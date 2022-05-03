@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<head>
+    <title>osu! mappack generator</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="../img/favicon.ico" />
+    <link href="../css/reset.css" rel="stylesheet" type="text/css">
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3f04b9f9c1.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="../js/mappack.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>osu! mappack generator</h1>
+        </div>
+
+        <div class="description">
+            <p>easily generate a zip file of maps<br><br><b>only maps available on chimu.moe may be downloaded!</b></p>
+        </div>
+
+        <hr>
+
+        <div class="sections">
+            <label for="fname">comma-separated list of map ids</label>
+            <input type="text" id="setids" name="setids" placeholder="12035, 297933, 849824, ...">
+            <a type="button" class="button" style="width: 49.5%" onclick="generate(false)"><i class="fas fa-play"></i>generate</a>
+            <a type="button" class="button" style="width: 49.5%" onclick="generate(true)"><i class="fas fa-play"></i>generate (no video)</a>
+        </div>
+
+        <br>
+
+        <div class="progress-base" id="progress-base" style="visibility: hidden">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <p class="progress-label" id="progress-label"></p>
+        <p class="progress-label" id="progress-error"></p>
+        <h3 class="footer" id="footer">by shdewz</h3>
+    </div>
+</body>
+
+<style>
+    #progress-error a {
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    let options = { year: 'numeric', month: 'long' };
+    let modify_date = new Date(document.lastModified).toLocaleString('en-GB', options);
+    $('#footer').text(`by shdewz – last updated ${modify_date}`);
+</script>

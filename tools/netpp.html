@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <!-- VERY IMPORTANT STUFF -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>osu! net pp calculator</title>
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/netpp.css" type="text/css">
+    <script src="../js/netpp.js"></script>
+
+</head>
+
+<body>
+
+    <!-- TITLE AREA -->
+    <div class="title">
+        <h1>osu! net pp calculator</h1>
+        <h3>by shdewz</h3>
+    </div>
+
+    <!-- INPUT BOX -->
+    <div class="inputfield">
+        <form class="form">
+            <br>
+            <label for="uid">Username / ID *</label>
+            <input type="text" id="uid" name="uid" required>
+
+            <div class="gamemode-select">
+                <label for="gamemode">Gamemode *</label>
+                <select id="gamemode" required>
+                    <option>standard</option>
+                    <option>taiko</option>
+                    <option>catch</option>
+                    <option>mania</option>
+                </select>
+            </div>
+
+            <label for="rawpp">Raw pp *</label>
+            <input type="text" id="rawpp" name="rawpp" required>
+
+            <label for="overwrite">Overwrites</label>
+            <input type="text" id="overwrite" name="overwrite">
+
+            <label for="apikey">API Key *</label>
+            <input type="password" id="apikey" name="apikey" required>
+            <br><br>
+            <a href="#" class="button" onclick="calculate(false)">Calculate</a>
+            <br><br>
+        </form>
+    </div>
+
+    <!-- RESULT BOX -->
+    <div class="inputfield" id="resultbox">
+        <br><br>
+        <div class="lds-ellipsis" id="loading">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="playername">
+            <h3 id="playername-text"></h3>
+        </div>
+        <table id="resulttable">
+            <tr>
+                <td class="row-header"><b>Current pp</b></td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="row-header"><b>pp After</b></td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="row-header"><b>Difference</b></td>
+                <td>-</td>
+            </tr>
+        </table>
+        <label id="result"></label>
+    </div>
+</body>
+
+<script>
+    if (document.cookie.includes("apikey")) document.getElementById("apikey").value = document.cookie.replace(/(?:(?:^|.*;\s*)apikey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+</script>
+
+</html>
