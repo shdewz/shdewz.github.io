@@ -36,6 +36,7 @@ body {
 .title-text {
     background: var(--gradient);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
 }
@@ -43,6 +44,7 @@ body {
 .subtitle-text {
     background: var(--gradient);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0.9;
     font-size: 0.35em;
