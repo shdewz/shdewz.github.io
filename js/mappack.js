@@ -77,7 +77,7 @@ const export_zip = async maps => {
     $('#progress-label').text(`Finished, ${dl_list.length} maps downloaded`);
     let failed = maps.filter(map => map.status == 'failed');
     if (failed.length > 0) {
-        $('#progress-error').html(`Missing: ${failed.map(f => `<a href="https://osu.ppy.sh/b/${f.id}">${f.id}`).join(', ')}`);
+        $('#progress-error').html(`Missing: ${failed.map(f => `<a href="https://osu.ppy.sh/b/${f.id}">${f.id}</a>`).join(', ')}`);
     }
     return saveAs(file, fileName);
 }
