@@ -1,55 +1,50 @@
 let p = { bar: { index: 0, max: 0 }, finished: 0, total: 0 };
 
-async function generate(novid) {
+async function generate() {
     const ids = $('#setids').val().replace(/\s+/g, '').split(',').filter(e => e);
     if (ids.length == 0) return;
-    p = { bar: { index: 0, max: ids.length * 4 + ids.length / 4 }, finished: 0, total: ids.length };
+    p = { bar: { index: 0, max: ids.length + 1 }, finished: 0, total: ids.length };
     $('#progress-base').css('visibility', 'visible');
     $('#progress-label').text(`Downloading maps... (${p.finished}/${p.total})`);
     $('#progress-error').text('');
 
-    let maps = await Promise.all(ids.map(async id => ({ id: id, file: await download_map(id) })));
-    console.log(`${maps.filter(map => map.file).length} map(s) successfully downloaded.`);
+    let maps = [];
+    for (const map_id of ids) {
+        const resp = await fetch(`https://api.chimu.moe/v1/map/${map_id}`, { mode: 'cors' });
+        const map_data = await resp.json();
+        await delay(250);
+        if (map_data?.DownloadPath) {
+            const url = `https://api.chimu.moe/v1${map_data.DownloadPath}`;
+            const map = await download(url);
+            maps.push({ id: map_id, title: `${map_data.OsuFile.match(/(.* - .*) \(/)[1]}`, file: map });
+            await delay(250);
 
-    let failed = maps.filter(map => !map.file);
-    if (failed.length > 0) $('#progress-error').wrapInner(`<i class="fas fa-exclamation-triangle"></i> The following maps were not downloaded:<br>${failed.map(e => `<a href="https://osu.ppy.sh/b/${e.id}">${e.id}</a>`).join(', ')}`);
+            p.finished++;
+            update_progress(1);
+            $('#progress-label').text(`Downloading maps... (${p.finished}/${p.total})`);
+        }
+    }
 
-    $('#progress-label').text(`Preparing zip file...`);
-    export_zip(maps.filter(map => map.file), novid);
+    console.log(maps);
+    export_zip(maps.filter(map => map.file));
 }
 
-const download_map = async id => {
-    const map = await get_map(id);
-    if (map.length == 0) return false;
-    update_progress(1);
-    console.log(`Downloading ${map.OsuFile.match(/(.* - .*) \(/)[1]} (${map.ParentSetId})...`);
+const download = async url => {
+    const resp = await fetch(url);
+    return await resp.blob();
+};
 
-    const url = `https://api.chimu.moe/v1/download/${map.ParentSetId}?n=1`;
-    let response = await fetch(url);
-
-    if (!response.ok) return false;
-    const blob = await response.blob();
-    update_progress(3);
-    p.finished++;
-    $('#progress-label').text(`Downloading maps... (${p.finished}/${p.total})`);
-
-    return { title: `${map.OsuFile.match(/(.* - .*) \(/)[1]}`, blob: blob };
-}
-
-const export_zip = async (maps, novid) => {
-    if (maps.length == 0) return $('#progress-label').text(`Finished, ${maps.length} maps downloaded`);
+const export_zip = async maps => {
+    if (maps.length == 0) return $('#progress-label').text(`No maps downloaded`);
 
     const zip = new JSZip();
 
     for (const map of maps) {
-        if (novid) {
-            let mapzip = new JSZip();
-            await mapzip.loadAsync(map.file.blob);
-            for (const file of Object.keys(mapzip.files)) { if (file.endsWith('.mp4')) mapzip.remove(file); };
-            map.file.blob = await mapzip.generateAsync({ type: 'blob' });
-        }
+        let mapzip = new JSZip();
+        await mapzip.loadAsync(map.file);
+        map.file = await mapzip.generateAsync({ type: 'blob' });
 
-        zip.file(`${map.id} ${map.file.title}.osz`, map.file.blob);
+        zip.file(`${map.id} ${map.title}.osz`, map.file);
     }
 
     let file = await zip.generateAsync({ type: 'blob' });
@@ -59,5 +54,5 @@ const export_zip = async (maps, novid) => {
     return saveAs(file, fileName);
 }
 
-const get_map = async id => (await (await fetch(`https://api.chimu.moe/v1/map/${id}`)).json()).data;
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const update_progress = increment => { p.bar.index += increment; $('#progress').css('width', Math.ceil((p.bar.index / p.bar.max) * 100) + '%'); };
