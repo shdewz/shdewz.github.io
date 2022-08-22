@@ -11,6 +11,7 @@ async function generate() {
     let maps = [];
     for (const map_id of ids) {
         try {
+            await delay(300);
             let map = await get_map(map_id);
             if (map) maps.push(map);
         }
@@ -38,11 +39,11 @@ const get_map = async map_id => {
     const resp = await fetch(`https://api.chimu.moe/v1/map/${map_id}`);
     const map_data = await resp.json();
     console.log('Downloading ' + map_id);
-    await delay(500);
+    await delay(350);
     if (map_data?.DownloadPath) {
         const url = `https://api.chimu.moe/v1${map_data.DownloadPath}`;
         const map = await download(url);
-        await delay(500);
+        await delay(350);
 
         p.finished++;
         update_progress(1);
