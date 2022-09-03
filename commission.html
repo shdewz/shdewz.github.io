@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+    <title>shdewz</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/3f04b9f9c1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="title">
+            </div>
+            <div class="socials-container">
+                <div class="infobox">
+                    <p>i do gfx sometimes (and a bunch of other stuff!)</p>
+                    <hr>
+                    <p>contact on discord to discuss more specific details. below is a rough table of estimated prices
+                        that may vary depending on the commission size and how busy i am.</p>
+                        <p>support by donating via <a class="social link" href="https://ko-fi.com/shdewz">ko-fi</a></p>
+                    <hr>
+                    <table>
+                        <tr>
+                            <td>osu! tournament gfx</td>
+                            <td>$40–$120+ <div class="tooltip"><i class="fas fa-question-circle"></i><span class="tooltiptext">depends a lot on the amount of needed elements and their complexity. custom gosumemory stream overlays for example go well over the estimated price range.</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>stream overlay</td>
+                            <td>$30–$60+</td>
+                        </tr>
+                        <tr>
+                            <td>custom pp counter</td>
+                            <td>$60+</td>
+                        </tr>
+                        <tr>
+                            <td>twitch panels</td>
+                            <td>~$10 each</td>
+                        </tr>
+                        <tr>
+                            <td>collabs</td>
+                            <td>$20+ <div class="tooltip"><i class="fas fa-question-circle"></i><span class="tooltiptext">pfps, bbcode, all that stuff.</span></div></td>
+                        </tr>
+                    </table>
+                    <br><br>
+
+                    <div style="text-align: center; font-size: 0.9rem;">
+                        <a class="social discord" onclick="copydc()">discord: shdewz#0518</a>
+                        <p id="copied">copied to clipboard!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copydc() {
+            navigator.clipboard.writeText('shdewz#0518');
+
+            let copied = document.getElementById('copied');
+            copied.style.opacity = '0.2';
+            setTimeout(function () { copied.style.opacity = '0'; }, 2200);
+        } 
+    </script>
+</body>
