@@ -8,6 +8,7 @@
 
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/commission.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/3f04b9f9c1.js" crossorigin="anonymous"></script>
 </head>
 
@@ -16,55 +17,103 @@
         <div class="content">
             <div class="title">
             </div>
-            <div class="socials-container">
-                <div class="infobox">
-                    <h3 class="comm-status">CURRENT STATUS: <span class="status-semiclosed">DEPENDS</span></h3>
-                    <p>i do gfx sometimes (and a bunch of other stuff!)</p>
+            <div class="infobox">
+                <div class="info-panel">
+                    <h3 class="comm-status">CURRENT STATUS: <span class="status-open">OPEN</span></h3>
+                    <p>i do gfx and a bunch of other stuff!</p>
                     <hr>
-                    <p>contact on discord to discuss more specific details. below is a <b>VERY ROUGH</b> table of estimated prices
-                        that can and will vary depending on the commission size and how busy i am.</p>
-                        <p>support by donating via <a class="social link" href="https://ko-fi.com/shdewz">ko-fi</a></p>
+                    <p>currently specializing in <b>fully custom gosumemory tournament overlays/pp counters</b>. other
+                        work includes all forms of gfx for osu! tournaments, static stream overlays, banners and more.
+                    </p>
+                    <p>pricing can vary substantially depending on the complexity of requests. contact on discord for
+                        more information.</p>
                     <hr>
-                    <table>
-                        <tr>
-                            <td>osu! tournament gfx</td>
-                            <td>$40–$120+ <div class="tooltip"><i class="fas fa-question-circle"></i><span class="tooltiptext">depends a lot on the amount of needed elements and their complexity. custom gosumemory stream overlays for example go well over the estimated price range.</span></div></td>
-                        </tr>
-                        <tr>
-                            <td>stream overlay</td>
-                            <td>$30–$60+</td>
-                        </tr>
-                        <tr>
-                            <td>custom pp counter</td>
-                            <td>$60+</td>
-                        </tr>
-                        <tr>
-                            <td>twitch panels</td>
-                            <td>~$10 each</td>
-                        </tr>
-                        <tr>
-                            <td>collabs</td>
-                            <td>$20+ <div class="tooltip"><i class="fas fa-question-circle"></i><span class="tooltiptext">pfps, bbcode, all that stuff.</span></div></td>
-                        </tr>
-                    </table>
-                    <br><br>
+                    <p>> <a class="social" onclick="copydc()">discord: shdewz#0518</a><span id="copied">copied to
+                            clipboard!</span><br>
+                        > <a class="social" href="https://ko-fi.com/shdewz">support on ko-fi</a>
+                    </p>
 
-                    <div style="text-align: center; font-size: 0.9rem;">
-                        <a class="social discord" onclick="copydc()">discord: shdewz#0518</a>
-                        <p id="copied">copied to clipboard!</p>
+                </div>
+                <div class="info-panel work-panel">
+                    <h3 class="comm-status">MY WORK</h3>
+                    <p>most recent products</p>
+                    <hr>
+                    <div class="work-container">
+                        <div class="work-piece">
+                            <span>> kay's finesse cup 2023 showcase overlay</span><br>
+                            <span class="work-subinfo""">design by kaetwo & megumic | implementation by me</span><br>
+                            <img class="work-preview" src="./img/gfx/kfc23.png">
+                        </div>
+                        <div class="work-piece">
+                            <span>> GST:LIVE 2022 stream overlay</span><br>
+                            <span class="work-subinfo""">design by megumic | implementation by me</span><br>
+                            <img class="work-preview" src="./img/gfx/gst22.png">
+                        </div>
+                        <div class="work-piece">
+                            <span>> dreamjam stream overlay</span><br>
+                            <span class="work-subinfo""">design by megumic | implementation by me</span><br>
+                            <img class="work-preview" src="./img/gfx/dreamjam.png">
+                        </div>
+                        <div class="work-piece">
+                            <span>> osu! finnish tournament 6</span><br>
+                            <span class="work-subinfo""">design and implementation by me</span><br>
+                            <img class="work-preview" src="./img/gfx/oft6.png">
+                        </div>
                     </div>
                 </div>
+                <!-- <h3 class="comm-status">CURRENT STATUS: <span class="status-semiclosed">DEPENDS</span></h3>
+                <p>i do gfx sometimes (and a bunch of other stuff!)</p>
+                <hr>
+                <p>contact on discord to discuss more specific details. below is a <b>VERY ROUGH</b> table of estimated
+                    prices
+                    that can and will vary depending on the commission size and how busy i am.</p>
+                <p>support by donating via <a class="social link" href="https://ko-fi.com/shdewz">ko-fi</a></p>
+                <hr>
+                <table>
+                    <tr>
+                        <td>osu! tournament gfx</td>
+                        <td>$40–$120+ <div class="tooltip"><i class="fas fa-question-circle"></i><span
+                                    class="tooltiptext">depends a lot on the amount of needed elements and their
+                                    complexity. custom gosumemory stream overlays for example go well over the estimated
+                                    price range.</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>stream overlay</td>
+                        <td>$30–$60+</td>
+                    </tr>
+                    <tr>
+                        <td>custom pp counter</td>
+                        <td>$60+</td>
+                    </tr>
+                    <tr>
+                        <td>twitch panels</td>
+                        <td>~$10 each</td>
+                    </tr>
+                    <tr>
+                        <td>collabs</td>
+                        <td>$20+ <div class="tooltip"><i class="fas fa-question-circle"></i><span
+                                    class="tooltiptext">pfps, bbcode, all that stuff.</span></div>
+                        </td>
+                    </tr>
+                </table>
+                <br><br>
+
+                <div style="text-align: center; font-size: 0.9rem;">
+                    <a class="social discord" onclick="copydc()">discord: shdewz#0518</a>
+                    <p id="copied">copied to clipboard!</p>
+                </div>
+            </div> -->
             </div>
         </div>
-    </div>
 
-    <script>
-        function copydc() {
-            navigator.clipboard.writeText('shdewz#0518');
+        <script>
+            function copydc() {
+                navigator.clipboard.writeText('shdewz#0518');
 
-            let copied = document.getElementById('copied');
-            copied.style.opacity = '0.2';
-            setTimeout(function () { copied.style.opacity = '0'; }, 2200);
-        } 
-    </script>
+                let copied = document.getElementById('copied');
+                copied.style.opacity = '0.2';
+                setTimeout(function () { copied.style.opacity = '0'; }, 2200);
+            } 
+        </script>
 </body>

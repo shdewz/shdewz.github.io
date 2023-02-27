@@ -1,0 +1,120 @@
+.infobox {
+    display: flex;
+    font-size: 0.9rem;
+}
+
+.info-panel {
+    text-align: left;
+    max-width: 520px;
+    padding: 0 18px;
+}
+
+.info-panel + .info-panel {
+    margin-left: 20px;
+}
+
+.work-panel {
+    max-width: 780px;
+}
+
+.title {
+    margin-bottom: 48px;
+}
+
+p {
+    color: #e6e6e6;
+}
+
+p b {
+    color: #ffffff;
+}
+
+hr {
+    width: 30%;
+    border: none;
+    margin-left: 0;
+    border-top: 2px solid #383838;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 280px;
+    background-color: #292929;
+    text-align: center;
+    color: #cacaca;
+    font-size: 0.7rem;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -148px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #292929 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.work-container {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.work-piece {
+    margin-bottom: 24px;
+    max-width: 46%;
+}
+
+.work-preview {
+    max-width: 95%;
+    margin: 12px 18px;
+}
+
+.work-subinfo {
+    opacity: 0.6;
+    font-size: 0.7rem;
+    margin-left: 18px;
+}
+
+.comm-status {
+    color: #686868;
+}
+
+.status-open {
+    color: #a1f590;
+}
+
+.status-closed {
+    color: #f59090;
+}
+
+.status-semiclosed {
+    color: #f5d790;
+}
+
+#copied {
+    font-size: 1em;
+    opacity: 0;
+    margin-left: 12px;
+    transition: 400ms ease-out;
+}
