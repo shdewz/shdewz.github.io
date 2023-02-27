@@ -1,20 +1,21 @@
 .infobox {
     display: flex;
-    font-size: 0.9rem;
+    flex-wrap: wrap;
+    font-size: max(min(2vw, 1rem), 0.7rem);
+    max-width: 100vw;
 }
 
 .info-panel {
     text-align: left;
     max-width: 520px;
+    min-width: min(90vw, 400px);
     padding: 0 18px;
-}
-
-.info-panel + .info-panel {
-    margin-left: 20px;
+    margin-bottom: 40px;
 }
 
 .work-panel {
-    max-width: 780px;
+    max-width: 860px;
+    min-width: min(90vw, 860px);
 }
 
 .title {
@@ -30,49 +31,14 @@ p b {
 }
 
 hr {
-    width: 30%;
+    width: 100%;
     border: none;
     margin-left: 0;
     border-top: 2px solid #383838;
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 280px;
-    background-color: #292929;
-    text-align: center;
-    color: #cacaca;
-    font-size: 0.7rem;
-    padding: 8px;
-    position: absolute;
-    z-index: 1;
-    bottom: 150%;
-    left: 50%;
-    margin-left: -148px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #292929 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-
 .work-container {
+    font-size: 1em;
     margin-top: 16px;
     width: 100%;
     display: flex;
@@ -83,6 +49,8 @@ hr {
 .work-piece {
     margin-bottom: 24px;
     max-width: 46%;
+    min-width: min(87vw, 24rem);
+    font-size: min(1.1em, 1rem);
 }
 
 .work-preview {
@@ -92,11 +60,12 @@ hr {
 
 .work-subinfo {
     opacity: 0.6;
-    font-size: 0.7rem;
-    margin-left: 18px;
+    font-size: 0.8em;
+    margin-left: 16px;
 }
 
 .comm-status {
+    font-size: 1.5em;
     color: #686868;
 }
 
