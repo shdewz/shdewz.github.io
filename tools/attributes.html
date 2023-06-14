@@ -29,6 +29,8 @@
         <input type="number" id="ar" name="ar" value=5 step=0.1 required>
         <p class="arrow">→</p>
         <input class="result" type="text" id="ar-c" name="ar-c" value=5 disabled>
+        <input class="result" type="text" id="ar-c-ms" name="ar-c-ms" value="1200ms" disabled
+            style="margin-left: 0.3rem; width: 4rem;">
     </div>
     <div class="input-row">
         <label for="od">OD</label>
@@ -93,11 +95,12 @@
     const recalc = () => {
         let mods = $('#mods').val();
         let speed = $('#rate').val();
-        let stats = getModStats($('#cs').val(), $('#ar').val(), $('#od').val(), $('#hp').val(), mods, speed);
+        let stats = getModStats($('#cs').val(), $('#ar').val(), $('#od').val(), $('#hp').val(), mods, speed, lazer_caps);
         $('#cs-c').val(Math.round(stats.cs * 10) / 10);
         $('#ar-c').val(Math.round(stats.ar * 10) / 10);
         $('#od-c').val(Math.round(stats.od * 10) / 10);
         $('#hp-c').val(Math.round(stats.hp * 10) / 10);
+        $('#ar-c-ms').val(`${Math.round(stats.ar_ms)}ms`);
     }
 
     const getModStats = (cs_raw, ar_raw, od_raw, hp_raw, mods, speed) => {
@@ -111,7 +114,7 @@
         let od = mods.includes('HR') ? od_raw * 1.4 : mods.includes('EZ') ? od_raw * 0.5 : od_raw;
         od = Math.min((79.5 - (Math.min(79.5, Math.max(19.5, 79.5 - Math.ceil(6 * od))) / speed)) / 6, 11);
 
-        return { cs, ar, od, hp }
+        return { cs, ar, od, hp, ar_ms }
     }
 
     $('#cs-slider').on('input', () => { $('#cs').val($('#cs-slider').val()); recalc() });
