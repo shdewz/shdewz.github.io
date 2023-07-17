@@ -89,7 +89,7 @@
 ## and a couple of animated banners:
 
 ><br><img src="https://cdn.discordapp.com/attachments/638414140393652224/1118253540587077895/bdt_banner_1.gif">
-<img src="https://cdn.discordapp.com/attachments/638414140393652224/1017037681638785135/fdc_banner_1.gif">
+><img src="https://cdn.discordapp.com/attachments/638414140393652224/1017037681638785135/fdc_banner_1.gif">
 ><img src="https://cdn.discordapp.com/attachments/638414140393652224/1040643461004656701/banner1.gif">
 ><img src="https://cdn.discordapp.com/attachments/265497141013643276/880929972297023517/oms-t1-1.gif">
 ><img src="https://cdn.discordapp.com/attachments/638414140393652224/1084102860846931978/dach_banner_1.gif">
