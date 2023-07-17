@@ -1,8 +1,31 @@
 # things i've designed
 
+## [*osu! finnish tournament 7*](https://osu.ppy.sh/community/forums/topics/1794075)
+
+> main gfx artist
+><div style="display: flex; padding-bottom: 2%; flex-wrap: wrap;"><div style="width: 49%; margin-right: 2%; display: flex; flex-direction: column; justify-content: space-between; float: left;"><img src="https://cdn.discordapp.com/attachments/638414140393652224/1130161319669137549/main.png"><img src="https://cdn.discordapp.com/attachments/638414140393652224/1130161389089071265/subh-info.png"><img src="https://cdn.discordapp.com/attachments/638414140393652224/1130161389361709147/subh-rules.png"></div>
+
+---
+
+## [*4 digit world cup 2023*](https://osu.ppy.sh/community/forums/topics/1761090)
+
+> stream designer; programmed all the stream overlays
+>
+><div style="display: flex; padding-bottom: 2%;"><img style="width: 49%; margin-right: 2%;" src="https://cdn.discordapp.com/attachments/638414140393652224/1130495049893945455/image.png"></div>
+
+---
+
+## [*3 digit world cup 2023*](https://osu.ppy.sh/community/forums/topics/1723055)
+
+> stream designer and secondary artist; helped design the main graphics along with doing the stream overlays
+>
+><div style="display: flex; padding-bottom: 2%;"><img style="width: 49%; margin-right: 2%;" src="https://cdn.discordapp.com/attachments/638414140393652224/1130494845740404848/image.png"></div>
+
+---
+
 ## [*kay's finesse cup 2023*](https://osu.ppy.sh/community/forums/topics/1719000)
 
-> stream designer; for this tournament i made the **stream and mappool showcase overlays** (gosumemory html/css/js funtime) with assets from the main artists
+> stream designer; for this tournament i made the **stream overlays** (gosumemory html/css/js funtime) with assets from the main artists
 >
 ><div style="display: flex; padding-bottom: 2%;"><img style="width: 49%; margin-right: 2%;" src="https://shdewz.s-ul.eu/ZI7KvWwW.jpg"><img style="width: 49%" src="https://shdewz.s-ul.eu/YYfHGXY6.jpg"></div>
 
@@ -65,7 +88,8 @@
 
 ## and a couple of animated banners:
 
-><br><img src="https://cdn.discordapp.com/attachments/638414140393652224/1017037681638785135/fdc_banner_1.gif">
+><br><img src="https://cdn.discordapp.com/attachments/638414140393652224/1118253540587077895/bdt_banner_1.gif">
+<img src="https://cdn.discordapp.com/attachments/638414140393652224/1017037681638785135/fdc_banner_1.gif">
 ><img src="https://cdn.discordapp.com/attachments/638414140393652224/1040643461004656701/banner1.gif">
 ><img src="https://cdn.discordapp.com/attachments/265497141013643276/880929972297023517/oms-t1-1.gif">
 ><img src="https://cdn.discordapp.com/attachments/638414140393652224/1084102860846931978/dach_banner_1.gif">
