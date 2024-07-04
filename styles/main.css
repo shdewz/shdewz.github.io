@@ -56,8 +56,8 @@ body {
 }
 
 .description {
-    opacity: 0;
-    animation: reveal 1s ease-out forwards 1.9s;
+    opacity: 1;
+    /* animation: reveal 1s ease-out forwards 1.9s; */
     max-width: 34rem;
     display: flex;
     flex-direction: column;
@@ -121,6 +121,16 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: 200ms ease;
+}
+
+.misc-info {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-style: italic;
+    color: var(--text-500);
 }
 
 @keyframes reveal {
