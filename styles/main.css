@@ -128,10 +128,10 @@ body {
     margin-top: 1rem;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 1rem;
     font-style: italic;
-    color: var(--text-500);
+    color: var(--text-600);
 }
 
 @keyframes reveal {
@@ -159,5 +159,9 @@ body {
 
     .description {
         text-align: left;
+    }
+
+    .misc-info {
+        justify-content: flex-start;
     }
 }
