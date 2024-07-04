@@ -79,7 +79,8 @@ body {
     position: relative;
 }
 
-.social:after, .link:after {
+.social:after,
+.link:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -97,7 +98,8 @@ body {
     bottom: -0.2em;
 }
 
-.social:hover:after, .link:hover:after {
+.social:hover:after,
+.link:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -139,6 +141,7 @@ body {
         transform: translateY(-20px);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0px);
         opacity: 1;
