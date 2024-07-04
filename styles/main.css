@@ -56,8 +56,8 @@ body {
 }
 
 .description {
-    opacity: 1;
-    /* animation: reveal 1s ease-out forwards 1.9s; */
+    opacity: 0;
+    animation: reveal 1s ease-out forwards 1.9s;
     max-width: 34rem;
     display: flex;
     flex-direction: column;
@@ -124,6 +124,7 @@ body {
 }
 
 .misc-info {
+    font-size: 0.9rem;
     margin-top: 1rem;
     display: flex;
     align-items: center;
