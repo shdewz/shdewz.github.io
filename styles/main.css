@@ -4,8 +4,8 @@
 }
 
 html {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 body {
@@ -45,8 +45,7 @@ body {
 }
 
 .socials {
-    opacity: 0;
-    animation: reveal 1s ease-out forwards 1.7s;
+    opacity: 1;
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
@@ -56,8 +55,7 @@ body {
 }
 
 .description {
-    opacity: 0;
-    animation: reveal 1s ease-out forwards 1.9s;
+    opacity: 1;
     max-width: 34rem;
     display: flex;
     flex-direction: column;
@@ -127,7 +125,6 @@ body {
 
 .misc-info {
     font-size: 0.9rem;
-    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;

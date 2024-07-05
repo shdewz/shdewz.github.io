@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="styles/logo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/3f04b9f9c1.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -75,15 +76,15 @@
                 </svg>
             </div>
         </div>
-        <div class="info">
-            <div class="socials">
+        <div class="info" id="info">
+            <div class="info-section socials">
                 <a href="https://twitter.com/shdewz" class="social">twitter</a>
                 <a href="https://github.com/shdewz" class="social">github</a>
                 <a href="https://osu.ppy.sh/users/10000899" class="social">osu!</a>
                 <a href="https://twitch.tv/shdewz" class="social">twitch</a>
                 <a href="https://steamcommunity.com/id/shdewz/" class="social">steam</a>
             </div>
-            <div class="description">
+            <div class="info-section description">
                 <p>hiiii~ &gt;_&lt;</p>
                 <p>im a finnish <span id="age">?</span> year old nap addict, photographer, cs student, taxi driver, osu!
                     tournament host, gfx
@@ -91,31 +92,36 @@
                 <p>add me on discord <span class="discord">@<span class="link" onclick="copydc()">shdewz</span><span
                             class="tooltip" id="discord_tooltip">copied to clipboard!</span></span>
                     ^_^</p>
-                <div class="misc-info">
-                    <div class="misc-info-section">he/him/any</div>
-                    <div class="misc-info-section">fi/en</div>
-                    <div class="misc-info-section">infp</div>
-                </div>
+            </div>
+            <div class="info-section misc-info">
+                <div class="misc-info-section">he/him/any</div>
+                <div class="misc-info-section">fi/en</div>
+                <div class="misc-info-section">infp</div>
             </div>
         </div>
     </div>
 </body>
 
 <script>
+    $(() => {
+        $('#info').children('div').each((i, c) => {
+            $(c).css('opacity', '0');
+            $(c).css('animation', `reveal 1.2s ease-out forwards ${1.7 + i * 0.2}s`);
+        });
+    });
+
     const getAge = birthday => {
         const ageDifMs = Date.now() - birthday.getTime();
         const ageDate = new Date(ageDifMs);
         return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
-    document.getElementById('age').innerHTML = getAge(new Date('2003-10-16'));
+    $('#age').text(getAge(new Date('2003-10-16')));
 
     const copydc = () => {
         navigator.clipboard.writeText('shdewz');
 
-        const tooltip = document.getElementById('discord_tooltip');
-        tooltip.style.visibility = 'visible';
-        tooltip.style.opacity = 1;
-        setTimeout(() => { tooltip.style.opacity = 0; tooltip.style.visibility = 'hidden'; }, 2500);
+        $('#discord_tooltip').css('visibility', 'visible').css('opacity', 1);
+        setTimeout(() => { $('#discord_tooltip').css('visibility', 'hidden').css('opacity', 0); }, 2500);
     } 
 </script>
 
