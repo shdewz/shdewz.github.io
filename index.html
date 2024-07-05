@@ -102,13 +102,13 @@
                 </div>
             </div>
         </div>
-        <div class="info-page" id="info-page">
-            <div class="scroll-handle open-handle">
-                <div class="scroll-handle__button open-button" onclick="scroll_down()"><i
+        <div class="info-page" id="info_page">
+            <div class="scroll-handle open-handle" id="open_handle">
+                <div class="scroll-handle__button open-button" onclick="scroll_down()" id="open_handle_button"><i
                         class="fa-solid fa-chevron-up"></i></div>
             </div>
-            <div class="scroll-handle close-handle">
-                <div class="scroll-handle__button close-button" onclick="scroll_up()"><i
+            <div class="scroll-handle close-handle" id="open_handle">
+                <div class="scroll-handle__button close-button" onclick="scroll_up()" id="close_handle_button"><i
                         class="fa-solid fa-chevron-down"></i></div>
             </div>
             <div class="">under construction</div>
@@ -124,9 +124,16 @@
         });
     });
 
-    // const scroll_down = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    const scroll_down = () => $('#info-page').css('transform', 'translateY(-100%)');
-    const scroll_up = () => $('#info-page').css('transform', 'translateY(0)');
+    const scroll_down = () => {
+        $('#info_page').css('transform', 'translateY(-100%)');
+        $('#open_handle').css('opacity', 0);
+        $('#close_handle').css('opacity', 1);
+    }
+    const scroll_up = () => {
+        $('#info_page').css('transform', 'translateY(0)');
+        $('#open_handle').css('opacity', 1);
+        $('#close_handle').css('opacity', 0);
+    }
 
     const get_age = birthday => {
         const ageDifMs = Date.now() - birthday.getTime();
