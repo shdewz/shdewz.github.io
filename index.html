@@ -152,8 +152,11 @@
     const copydc = () => {
         navigator.clipboard.writeText('shdewz');
 
-        $('#discord_tooltip').css('visibility', 'visible').css('opacity', 1);
-        setTimeout(() => { $('#discord_tooltip').css('visibility', 'hidden').css('opacity', 0); }, 2500);
+        $('#discord_tooltip').css('visibility', 'visible').css('opacity', 1).css('transform', 'translateX(-50%) scaleX(1)');
+        setTimeout(() => {
+            $('#discord_tooltip').css('opacity', 0).css('transform', 'translateX(-50%) scaleX(0)');
+            setTimeout(() => { $('#discord_tooltip').css('visibility', 'hidden'); }, 300);
+        }, 2500);
     } 
 </script>
 

@@ -196,7 +196,7 @@ body {
     position: absolute;
     top: -2em;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scaleX(0);
     font-size: 0.8rem;
     padding: 0.1rem 0.8rem;
     text-wrap: nowrap;
@@ -204,7 +204,7 @@ body {
     background-color: var(--primary-400);
     visibility: hidden;
     opacity: 0;
-    transition: 200ms ease;
+    transition: opacity 200ms ease, transform 150ms ease-out;
 }
 
 .misc-info {
