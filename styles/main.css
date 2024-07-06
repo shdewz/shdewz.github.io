@@ -56,7 +56,14 @@ body {
     height: 3rem;
     width: 100%;
     overflow: hidden;
-    transition: opacity 100ms ease;
+}
+
+#open_handle {
+    transition: opacity 200ms ease-in 100ms;
+}
+
+#close_handle {
+    transition: opacity 200ms ease;
 }
 
 .scroll-handle.open-handle {
