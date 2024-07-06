@@ -56,14 +56,11 @@ body {
     height: 3rem;
     width: 100%;
     overflow: hidden;
-}
-
-#open_handle {
-    transition: opacity 200ms ease-in 100ms;
+    transition: opacity 100ms ease-in 100ms;
 }
 
 #close_handle {
-    transition: opacity 200ms ease;
+    opacity: 0;
 }
 
 .scroll-handle.open-handle {
