@@ -1,0 +1,139 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--background-900);
+    gap: 2rem;
+}
+
+.app {
+    height: fit-content;
+    display: flex;
+    gap: 2rem;
+}
+
+.main-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.results-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 16rem;
+}
+
+.panel-separator {
+    width: 1px;
+    height: 100%;
+    background-color: var(--background-700);
+}
+
+.results-title {
+    padding: 0.3rem 0;
+}
+
+.search-error {
+    opacity: 0;
+    color: var(--error);
+    font-size: 0.8rem;
+    transition: opacity 200ms ease;
+}
+
+.results {
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.results-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+#status_row {
+    color: var(--primary-400);
+}
+
+#finished_row {
+    margin-top: 0.4em;
+    display: block;
+    line-height: 1.3em;
+}
+
+#status_icon, #match_row, #score_row {
+    display: none;
+    opacity: 0;
+    transition: opacity 200ms ease;
+}
+
+.lobby_link {
+    text-decoration: underline dotted;
+    transition: 120ms ease-out;
+}
+
+.lobby_link:hover {
+    color: var(--primary-400);
+    text-decoration: underline var(--primary-400);
+}
+
+.info {
+    max-width: 42rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-200);
+}
+
+.info-title {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.info-text {
+    font-size: 0.8rem;
+    color: var(--text-400);
+}
+
+@media only screen and (max-width: 50rem) {
+    .main {
+        overflow: visible;
+    }
+
+    .content {
+        width: 100%;
+        padding: 2rem 0;
+    }
+
+    .app-container {
+        width: calc(100% - 2rem);
+        padding: 1rem;
+    }
+
+    .option-row {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+
+    .options {
+        gap: 1rem;
+    }
+
+    .option {
+        min-width: 13rem;
+        width: 100%;
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>osu! multiplayer lobby finder — shdewz</title>
+
+    <!-- fix relative paths -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="/styles/tools.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/3f04b9f9c1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="title">
+                <h2 class="title-text">osu! multiplayer lobby finder</h1>
+                    <h5 class="author">by shdewz</h3>
+            </div>
+
+            <div class="app-container">
+                <div class="app">
+                    <div class="main-panel">
+                        <div class="options">
+                            <div class="option-row">
+                                <select id="search_type" name="search_type" class="option dropdown">
+                                    <option value="query_lobby_name">lobby name</option>
+                                    <option value="query_lobby_name_regex">lobby name (regex)</option>
+                                    <option value="query_player">player (id)</option>
+                                    <option value="query_beatmap">beatmap (id)</option>
+                                </select>
+                                <div class="option-name">search type</div>
+                            </div>
+                            <div class="option-row">
+                                <input type="text" id="query" name="query" placeholder="4WC2024:" autocomplete="off"
+                                    class="option">
+                                <div class="option-name">search keyword</div>
+                            </div>
+                            <div class="option-row">
+                                <input type="number" id="start_from" name="start_from" placeholder="114309712"
+                                    autocomplete="off" class="option">
+                                <div class="option-name">start from</div>
+                            </div>
+                            <div class="option-row">
+                                <input type="number" id="max_retries" name="max_retries" placeholder="200"
+                                    autocomplete="off" class="option">
+                                <div class="option-name">max retries</div>
+                            </div>
+                            <div class="option-row">
+                                <input type="password" id="api_key" name="api_key" placeholder="****" autocomplete="off"
+                                    class="option">
+                                <a href="https://osu.ppy.sh/home/account/edit#legacy-api" class="option-name link">api
+                                    key</a>
+                            </div>
+                        </div>
+                        <div class="button" onclick="search()">search!</div>
+                        <div id="search_error" class="search-error">/</div>
+                    </div>
+                    <div class="panel-separator"></div>
+                    <div class="results-panel">
+                        <div class="results-title">status:</div>
+                        <div class="results">
+                            <div class="results-row" id="status_row"><i class="fa-solid fa-spinner loading-icon"
+                                    id="status_icon"></i><span id="status_text">waiting...</span></div>
+                            <div class="results-row" id="match_row"><span id="match_count">0</span> / <span
+                                    id="match_total">100</span> matches processed</div>
+                            <div class="results-row" id="score_row"><span id="score_count">200</span> scores processed
+                            </div>
+                            <div class="results-row" id="finished_row"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="info-title">how does this work?</div>
+                    <div class="info-text">start by choosing your search type and the keyword or id to query with. set the starting point to the id of a multiplayer lobby that has been created slightly (~15 minutes or less) before your desired lobby (you need to find one yourself first)</div>
+                    <div class="info-text">set the retry count to how many lobbies at most you want the script to comb through before ending the search. longer timespans require more retries to go through</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
