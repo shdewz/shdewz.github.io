@@ -51,6 +51,8 @@
     --secondary-800: #1f2e47;
     --secondary-900: #0f1724;
     --secondary-950: #080b12;
+
+    --error: #f77f7f;
 }
 
 h1 {
