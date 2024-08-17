@@ -58,7 +58,7 @@ Fully custom [gosumemory](https://github.com/l3lackShark/gosumemory)/[tosu](http
 
 - [4 Digit World Cup 2024](https://www.youtube.com/watch?v=2DlShXHRRwc)
 - [3 Digit World Cup 2024](https://www.twitch.tv/videos/2086517689)
-- [osu! finnish tournament 6](https://www.twitch.tv/videos/1945826756)
+- [osu! finnish tournament 7](https://www.twitch.tv/videos/1945826756)
 - [GST:LIVE 2022](https://www.twitch.tv/videos/1681588240) (*Design by megumic, execution by me*)
 - [Regression Rumble](https://www.twitch.tv/videos/1939097478) (*Design by megumic, execution by me*)
 
