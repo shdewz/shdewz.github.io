@@ -1,6 +1,6 @@
 # Things I've designed
 
-Or some of it, at least
+Or some of them, at least
 
 ## Tournament designs
 
@@ -54,23 +54,13 @@ Or some of it, at least
 
 ## Stream overlays
 
-Fully custom [gosumemory](https://github.com/l3lackShark/gosumemory)/[tosu](https://github.com/KotRikD/tosu) overlays designed and developed from the ground-up.
+Fully custom [gosumemory](https://github.com/l3lackShark/gosumemory)/[tosu](https://github.com/KotRikD/tosu) overlays designed and developed from the ground-up. The links lead to match VODs showcasing the overlays:
 
-### 4 digit world cup 2024
-
-> <iframe style="padding: 2% 0" width="560" height="315" src="https://www.youtube.com/embed/2DlShXHRRwc?si=X45un4cGxWxlzvuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
----
-
-### 3 digit world cup 2024
-
-> <iframe src="https://player.twitch.tv/?video=2086517689&parent=www.github.com" frameborder="0" allowfullscreen="true" scrolling="no" style="padding: 2% 0" width="560" height="315"></iframe>
-
----
-
-### osu! finnish tournament 7
-
-> <iframe src="https://player.twitch.tv/?video=1945826756&parent=www.github.com" frameborder="0" allowfullscreen="true" scrolling="no" style="padding: 2% 0" width="560" height="315"></iframe>
+- [4 Digit World Cup 2024](https://www.youtube.com/watch?v=2DlShXHRRwc)
+- [3 Digit World Cup 2024](https://www.twitch.tv/videos/2086517689)
+- [osu! finnish tournament 6](https://www.twitch.tv/videos/1945826756)
+- [GST:LIVE 2022](https://www.twitch.tv/videos/1681588240) (*Design by megumic, execution by me*)
+- [Regression Rumble](https://www.twitch.tv/videos/1939097478) (*Design by megumic, execution by me*)
 
 ---
 
