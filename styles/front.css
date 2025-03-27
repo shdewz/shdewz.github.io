@@ -54,7 +54,7 @@
 
 .description {
     opacity: 1;
-    max-width: 34rem;
+    max-width: 36rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -74,7 +74,6 @@
 }
 
 .discord {
-    padding: 0 0.2em;
     font-style: italic;
     position: relative;
 }
