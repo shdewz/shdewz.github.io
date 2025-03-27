@@ -33,6 +33,7 @@ body {
     font-style: italic;
     cursor: pointer;
     position: relative;
+    color: var(--primary-300);
 }
 
 .link:after {
@@ -54,18 +55,9 @@ body {
     transform-origin: bottom left;
 }
 
-
-
-@keyframes reveal {
-    0% {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+.separator {
+    border-bottom: 1px solid var(--text-600);
+    width: 100%;
 }
 
 @media only screen and (max-width: 38rem) {

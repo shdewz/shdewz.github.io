@@ -33,21 +33,6 @@
             0 100%, 0 calc(100% - 0.5rem), calc(100% - 0.5rem) calc(100% - 0.5rem));
 }
 
-.separator {
-    border-bottom: 1px solid var(--text-600);
-    width: 100%;
-}
-
-.logo {
-    position: relative;
-    width: 30rem;
-    aspect-ratio: 2.5;
-    height: auto;
-    transform: translateX(4px);
-    max-width: max(12rem, calc(90vw - 6rem));
-    margin: 2rem 0;
-}
-
 .info {
     display: flex;
     flex-direction: column;

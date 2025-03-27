@@ -1,3 +1,13 @@
+.logo {
+    position: relative;
+    width: 30rem;
+    aspect-ratio: 2.5;
+    height: auto;
+    transform: translateX(4px);
+    max-width: max(12rem, calc(90vw - 6rem));
+    margin: 2rem 0;
+}
+
 .logo-main-stroke {
     fill: none;
     stroke: var(--primary-400);
