@@ -1,0 +1,14 @@
+.header {
+    font-size: 1.4rem;
+}
+
+.description {
+    text-align: left;
+}
+
+ul {
+    display: block;
+    list-style: '- ';
+    list-style-position: outside;
+    padding-left: 2ch;
+}
